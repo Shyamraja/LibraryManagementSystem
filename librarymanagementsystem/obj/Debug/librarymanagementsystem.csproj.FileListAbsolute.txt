@@ -1,0 +1,9 @@
+C:\Users\Owner\source\repos\librarymanagementsystem\librarymanagementsystem\bin\Debug\librarymanagementsystem.exe.config
+C:\Users\Owner\source\repos\librarymanagementsystem\librarymanagementsystem\bin\Debug\librarymanagementsystem.exe
+C:\Users\Owner\source\repos\librarymanagementsystem\librarymanagementsystem\bin\Debug\librarymanagementsystem.pdb
+C:\Users\Owner\source\repos\librarymanagementsystem\librarymanagementsystem\obj\Debug\librarymanagementsystem.csprojAssemblyReference.cache
+C:\Users\Owner\source\repos\librarymanagementsystem\librarymanagementsystem\obj\Debug\librarymanagementsystem.Login.resources
+C:\Users\Owner\source\repos\librarymanagementsystem\librarymanagementsystem\obj\Debug\librarymanagementsystem.Properties.Resources.resources
+C:\Users\Owner\source\repos\librarymanagementsystem\librarymanagementsystem\obj\Debug\librarymanagementsystem.csproj.GenerateResource.cache
+C:\Users\Owner\source\repos\librarymanagementsystem\librarymanagementsystem\obj\Debug\librarymanagementsystem.exe
+C:\Users\Owner\source\repos\librarymanagementsystem\librarymanagementsystem\obj\Debug\librarymanagementsystem.pdb
