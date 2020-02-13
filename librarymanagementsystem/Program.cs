@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace librarymanagementsystem
+namespace Librarysystem
 {
     static class Program
     {
@@ -16,11 +16,9 @@ namespace librarymanagementsystem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Login());
-            Application.Run(new Main());
+            Application.Run(new Customers());
             Application.Run(new Materials());
-          
-            
+            Application.Run(new Borrrows());
         }
     }
 }

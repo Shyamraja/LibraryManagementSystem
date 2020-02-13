@@ -1,0 +1,12 @@
+C:\Users\Owner\source\repos\Librarysystem\bin\Debug\Librarysystem.exe.config
+C:\Users\Owner\source\repos\Librarysystem\bin\Debug\Librarysystem.exe
+C:\Users\Owner\source\repos\Librarysystem\bin\Debug\Librarysystem.pdb
+C:\Users\Owner\source\repos\Librarysystem\obj\Debug\Librarysystem.csprojAssemblyReference.cache
+C:\Users\Owner\source\repos\Librarysystem\obj\Debug\Librarysystem.Properties.Resources.resources
+C:\Users\Owner\source\repos\Librarysystem\obj\Debug\Librarysystem.csproj.GenerateResource.cache
+C:\Users\Owner\source\repos\Librarysystem\obj\Debug\Librarysystem.exe
+C:\Users\Owner\source\repos\Librarysystem\obj\Debug\Librarysystem.pdb
+C:\Users\Owner\source\repos\Librarysystem\bin\Debug\Databaselibrarym.mdb
+C:\Users\Owner\source\repos\Librarysystem\obj\Debug\Librarysystem.Materials.resources
+C:\Users\Owner\source\repos\Librarysystem\obj\Debug\Librarysystem.Borrrows.resources
+C:\Users\Owner\source\repos\Librarysystem\obj\Debug\Librarysystem.Customers.resources
