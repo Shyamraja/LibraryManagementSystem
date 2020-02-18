@@ -67,6 +67,36 @@ namespace Librarysystem
             }
 
         }
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count == 0)
+                ClearField();
+            else
+            {
+                FillFields();
+            }
+        }
+
+        private void ClearField()
+        {
+            textBox1.Text = "";
+            textBox2.Text = "";
+            textBox3.Text = "";
+            textBox4.Text = "";
+            textBox5.Text = "";
+            textBox6.Text = "";
+        }
+        private void FillFields()
+        {
+            textBox1.Text = dataGridView1.SelectedRows[0].Cells["CustomerID"].Value.ToString();
+            textBox2.Text = dataGridView1.SelectedRows[0].Cells["Name"].Value.ToString();
+            textBox3.Text = dataGridView1.SelectedRows[0].Cells["Phone"].Value.ToString();
+            textBox4.Text = dataGridView1.SelectedRows[0].Cells["Age"].Value.ToString();
+            textBox5.Text = dataGridView1.SelectedRows[0].Cells["Gender"].Value.ToString();
+            textBox6.Text = dataGridView1.SelectedRows[0].Cells["Material"].Value.ToString();
+
+        }
+
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -81,6 +111,20 @@ namespace Librarysystem
             con.Close();
         }
 
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count == 0)
+                return;
+            int Customerid = (int)dataGridView1.SelectedRows[0].Cells["CustomerID"].Value;
+            string deleteQuery = "Delete from CustomerTable where Customerid = @CustomerID";
+            con.Open();
+            OleDbCommand cmd = new OleDbCommand(deleteQuery, con);
+            cmd.Parameters.AddWithValue("@CustomerID", Customerid);
 
+            cmd.ExecuteNonQuery();
+            MessageBox.Show("Deleted!");
+            con.Close();
+            dataGridView1.Rows.Remove(dataGridView1.SelectedRows[0]);
+        }
     }
 }
