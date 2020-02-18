@@ -1,4 +1,5 @@
-﻿namespace Librarysystem
+﻿using System;
+namespace Librarysystem
 {
     partial class Customers
     {
@@ -208,6 +209,7 @@
             this.button4.TabIndex = 18;
             this.button4.Text = "Delete";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // dataGridView1
             // 
@@ -216,8 +218,11 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(713, 242);
             this.dataGridView1.TabIndex = 19;
+            this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
+            this.dataGridView1.Click += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
             // Customers
             // 
