@@ -45,11 +45,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Borrrows.cs">
+    <Compile Include="Borrows.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Borrrows.Designer.cs">
-      <DependentUpon>Borrrows.cs</DependentUpon>
+    <Compile Include="Borrows.Designer.cs">
+      <DependentUpon>Borrows.cs</DependentUpon>
     </Compile>
     <Compile Include="DatabaselibrarymDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -62,6 +62,12 @@
     <Compile Include="Customers.Designer.cs">
       <DependentUpon>Customers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
     <Compile Include="Materials.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,11 +76,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Borrrows.resx">
-      <DependentUpon>Borrrows.cs</DependentUpon>
+    <EmbeddedResource Include="Borrows.resx">
+      <DependentUpon>Borrows.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Customers.resx">
       <DependentUpon>Customers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Materials.resx">
       <DependentUpon>Materials.cs</DependentUpon>

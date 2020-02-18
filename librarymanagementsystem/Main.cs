@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace librarymanagementsystem
+namespace Librarysystem
 {
     public partial class Main : Form
     {
@@ -17,14 +17,22 @@ namespace librarymanagementsystem
             InitializeComponent();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-
+            Customers category = new Customers();
+            category.Show();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
+            Borrows category = new Borrows();
+            category.Show();
+        }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Materials category = new Materials();
+            category.Show();
         }
     }
 }
