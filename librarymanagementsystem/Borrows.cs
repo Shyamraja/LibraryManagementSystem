@@ -41,29 +41,30 @@ namespace Librarysystem
             try
             {
                 string ID, MaterialID, CustomerID, BookedDate, DeliveryDate;
-                ID = txtID.Text;
-                MaterialID = textBox2.Text;
-                CustomerID = textBox3.Text;
-                BookedDate = textBox4.Text;
-                DeliveryDate = textBox5.Text;
+                ID = this.ID.Text;
+                MaterialID = this.MaterialID.Text;
+                CustomerID = this.CustomerID.Text;
+                BookedDate = this.BookedDate.Text;
+                DeliveryDate = this.DeliveryDate.Text;
 
-                sql = "insert into BorrowTable (ID, MaterialID, CustomerID, BookedDate, DeliveryDate)values(@ID,@CustomerID,@MaterialID,@BookedDate,@DeliveryDate)";
+                sql = "insert into BorrowTable (ID, MaterialID, CustomerID, BookedDate, DeliveryDate)values(@ID,@MaterialID,@CustomerID,@BookedDate,@DeliveryDate)";
                 con.Open();
                 OleDbCommand cmd = new OleDbCommand(sql, con);
                 cmd.Parameters.AddWithValue("@ID", ID);
-                cmd.Parameters.AddWithValue("@CustomerID", CustomerID);
                 cmd.Parameters.AddWithValue("@MaterialID", MaterialID);
-                cmd.Parameters.AddWithValue("@Booked Date", BookedDate);
-                cmd.Parameters.AddWithValue("@Delivery Date", DeliveryDate);
+                cmd.Parameters.AddWithValue("@CustomerID", CustomerID);
+                cmd.Parameters.AddWithValue("@BookedDate", BookedDate);
+                cmd.Parameters.AddWithValue("@DeliveryDate", DeliveryDate);
 
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Added");
                 con.Close();
-                txtID.Clear();
-                textBox2.Clear();
-                textBox3.Clear();
-                textBox4.Clear();
-                textBox5.Clear();
+                this.ID.Clear();
+                this.MaterialID.Clear();
+                this.CustomerID.Clear();
+                this.BookedDate.Clear();
+                this.DeliveryDate.Clear();
+                //dataGridView1.Rows.Add(dataGridView1.SelectedRows[0]);
             }
 
             catch (Exception ex)
@@ -90,14 +91,20 @@ namespace Librarysystem
 
         private void ClearField()
         {
-            textBox3.Text = "";
-            textBox2.Text = "";
+            ID.Text = "";
+            MaterialID.Text = "";
+            CustomerID.Text = "";
+            BookedDate.Text = "";
+            DeliveryDate.Text = "";
 
         }
         private void FillFields()
         {
-            textBox2.Text = dataGridView1.SelectedRows[0].Cells["ID"].Value.ToString();
-
+            ID.Text = dataGridView1.SelectedRows[0].Cells["ID"].Value.ToString();
+            MaterialID.Text = dataGridView1.SelectedRows[0].Cells["MaterialID"].Value.ToString();
+            CustomerID.Text = dataGridView1.SelectedRows[0].Cells["CustomerID"].Value.ToString();
+            BookedDate.Text = dataGridView1.SelectedRows[0].Cells["BookedDate"].Value.ToString();
+            DeliveryDate.Text = dataGridView1.SelectedRows[0].Cells["DeliveryDate"].Value.ToString();
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -108,11 +115,53 @@ namespace Librarysystem
             string deleteQuery = "Delete from BorrowTable where id = @ID" ;
             con.Open();
             OleDbCommand cmd = new OleDbCommand(deleteQuery, con);
-             cmd.Parameters.AddWithValue("@ID", id);
-      
+             cmd.Parameters.AddWithValue("@ID", id);    
             cmd.ExecuteNonQuery();
-            MessageBox.Show("Deleted!");
+            MessageBox.Show("Selected Borrow data row is Deleted!");
+            con.Close();
             dataGridView1.Rows.Remove(dataGridView1.SelectedRows[0]);
              }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            string MaterialID, CustomerID, BookedDate, DeliveryDate;
+
+            //ID = this.ID.Text;
+            MaterialID = this.MaterialID.Text;
+            CustomerID = this.CustomerID.Text;
+            BookedDate = this.BookedDate.Text;
+            DeliveryDate = this.DeliveryDate.Text;
+
+
+            if (dataGridView1.SelectedRows.Count == 0)
+                return;
+            int ID = (int)dataGridView1.SelectedRows[0].Cells["ID"].Value;
+            
+            sql = "Update BorrowTable set  MaterialID = @MaterialID,CustomerID = @CustomerID,BookedDate = @BookedDate,DeliveryDate = @DeliveryDate where ID = @ID ";
+            con.Open();
+            OleDbCommand cmd = new OleDbCommand(sql, con);
+           
+           
+            cmd.Parameters.AddWithValue("@MaterialID", MaterialID);
+            cmd.Parameters.AddWithValue("@CustomerID", CustomerID);
+            cmd.Parameters.AddWithValue("@BookedDate", BookedDate);
+            cmd.Parameters.AddWithValue("@DeliveryDate", DeliveryDate);
+            cmd.Parameters.AddWithValue("@ID", ID);
+
+            cmd.ExecuteNonQuery();
+            MessageBox.Show("Updated!");
+            con.Close();
+            
+            this.MaterialID.Clear();
+            this.CustomerID.Clear();
+            this.CustomerID.Clear();
+            this.BookedDate.Clear();
+            this.DeliveryDate.Clear();
+
+
+
+
+
+        }
     }
 }
