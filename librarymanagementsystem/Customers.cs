@@ -29,12 +29,12 @@ namespace Librarysystem
             {
 
                 string CustomerID, Name, Phone, Age, Gender, Material;
-                CustomerID = textBox1.Text;
-                Name = textBox2.Text;
-                Phone = textBox3.Text;
-                Age = textBox4.Text;
-                Gender = textBox5.Text;
-                Material = textBox6.Text;
+                CustomerID = this.CustomerID.Text;
+                Name = this.Name.Text;
+                Phone = this.Phone.Text;
+                Age = this.Age.Text;
+                Gender = this.Gender.Text;
+                Material = this.Material.Text;
 
                 sql = "insert into CustomerTable (CustomerID,Name,Phone,Age,Gender,Material)values(@CustomerID,@Name,@Phone,@Age,@Gender,@Material)";
                 con.Open();
@@ -48,12 +48,12 @@ namespace Librarysystem
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Added");
                 con.Close();
-                textBox1.Clear();
-                textBox2.Clear();
-                textBox3.Clear();
-                textBox4.Clear();
-                textBox5.Clear();
-                textBox6.Clear();
+                this.CustomerID.Clear();
+                this.Name.Clear();
+                this.Phone.Clear();
+                this.Age.Clear();
+                this.Gender.Clear();
+                this.Material.Clear();
 
             }
 
@@ -79,21 +79,21 @@ namespace Librarysystem
 
         private void ClearField()
         {
-            textBox1.Text = "";
-            textBox2.Text = "";
-            textBox3.Text = "";
-            textBox4.Text = "";
-            textBox5.Text = "";
-            textBox6.Text = "";
+            CustomerID.Text = "";
+            Name.Text = "";
+            Phone.Text = "";
+            Age.Text = "";
+            Gender.Text = "";
+            Material.Text = "";
         }
         private void FillFields()
         {
-            textBox1.Text = dataGridView1.SelectedRows[0].Cells["CustomerID"].Value.ToString();
-            textBox2.Text = dataGridView1.SelectedRows[0].Cells["Name"].Value.ToString();
-            textBox3.Text = dataGridView1.SelectedRows[0].Cells["Phone"].Value.ToString();
-            textBox4.Text = dataGridView1.SelectedRows[0].Cells["Age"].Value.ToString();
-            textBox5.Text = dataGridView1.SelectedRows[0].Cells["Gender"].Value.ToString();
-            textBox6.Text = dataGridView1.SelectedRows[0].Cells["Material"].Value.ToString();
+            CustomerID.Text = dataGridView1.SelectedRows[0].Cells["CustomerID"].Value.ToString();
+            Name.Text = dataGridView1.SelectedRows[0].Cells["Name"].Value.ToString();
+            Phone.Text = dataGridView1.SelectedRows[0].Cells["Phone"].Value.ToString();
+            Age.Text = dataGridView1.SelectedRows[0].Cells["Age"].Value.ToString();
+            Gender.Text = dataGridView1.SelectedRows[0].Cells["Gender"].Value.ToString();
+            Material.Text = dataGridView1.SelectedRows[0].Cells["Material"].Value.ToString();
 
         }
 
@@ -126,5 +126,71 @@ namespace Librarysystem
             con.Close();
             dataGridView1.Rows.Remove(dataGridView1.SelectedRows[0]);
         }
+
+        private void EDIT_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                string CustomerID,Name, Phone, Age, Gender, Material;
+                CustomerID = this.CustomerID.Text;
+                Name = this.Name.Text;
+                Phone = this.Phone.Text;
+                Age = this.Age.Text;
+                Gender = this.Gender.Text;
+                Material = this.Material.Text;
+
+                sql = "Update CustomerTable set Name = @Name,Phone = @Phone,Age = @Age,Gender = @Gender,Material = @Material where CustomerID = @CustomerID ";
+                con.Open();
+                OleDbCommand cmd = new OleDbCommand(sql, con);
+                cmd.Parameters.AddWithValue("@Name", Name);
+                cmd.Parameters.AddWithValue("@Phone", Phone);
+                cmd.Parameters.AddWithValue("@Age", Age);
+                cmd.Parameters.AddWithValue("@Gender", Gender);
+                cmd.Parameters.AddWithValue("@Material", Material);
+                cmd.Parameters.AddWithValue("@CustomerID", CustomerID);
+
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Added");
+                con.Close();
+                //this.CustomerID.Clear();
+                this.Name.Clear();
+                this.Phone.Clear();
+                this.Age.Clear();
+                this.Gender.Clear();
+                this.Material.Clear();
+
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                if (con.State != ConnectionState.Closed) con.Close();
+            }
+            //    if (dataGridView1.SelectedRows.Count == 0)
+            //        return;
+            //    int Customerid = (int)dataGridView1.SelectedRows[0].Cells["CustomerID"].Value;
+            //    //string updateQuery = "Update from CustomerTable where Customerid = @CustomerID";
+
+            //    sql = "Update CustomerTable set Customerid = @CustomerID,Name = @Name,Phone = @Phone,Age = @Age,Gender = @Gender,Material = @Material where Customerid = @CustomerID ";
+            //    con.Open();
+            //    OleDbCommand cmd = new OleDbCommand(sql, con);
+            //    cmd.Parameters.AddWithValue("@CustomerID", Customerid);
+
+            //    cmd.ExecuteNonQuery();
+            //    MessageBox.Show("Updated!");
+            //    con.Close();
+            //    dataGridView1.Rows.Remove(dataGridView1.SelectedRows[0]);
+            //}
+
+
+
+
+        }
     }
 }
+    
+    
