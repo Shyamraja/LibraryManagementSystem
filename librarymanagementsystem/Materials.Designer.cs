@@ -33,10 +33,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.ID = new System.Windows.Forms.TextBox();
+            this.Name = new System.Windows.Forms.TextBox();
+            this.Type = new System.Windows.Forms.TextBox();
+            this.Status = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -51,8 +51,10 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(653, 198);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
             // label1
             // 
@@ -90,33 +92,33 @@
             this.label4.TabIndex = 4;
             this.label4.Text = "Status";
             // 
-            // textBox1
+            // ID
             // 
-            this.textBox1.Location = new System.Drawing.Point(207, 54);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 22);
-            this.textBox1.TabIndex = 5;
+            this.ID.Location = new System.Drawing.Point(207, 54);
+            this.ID.Name = "ID";
+            this.ID.Size = new System.Drawing.Size(100, 22);
+            this.ID.TabIndex = 5;
             // 
-            // textBox2
+            // Name
             // 
-            this.textBox2.Location = new System.Drawing.Point(207, 96);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 22);
-            this.textBox2.TabIndex = 6;
+            this.Name.Location = new System.Drawing.Point(207, 96);
+            this.Name.Name = "Name";
+            this.Name.Size = new System.Drawing.Size(100, 22);
+            this.Name.TabIndex = 6;
             // 
-            // textBox3
+            // Type
             // 
-            this.textBox3.Location = new System.Drawing.Point(460, 49);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 22);
-            this.textBox3.TabIndex = 7;
+            this.Type.Location = new System.Drawing.Point(460, 49);
+            this.Type.Name = "Type";
+            this.Type.Size = new System.Drawing.Size(100, 22);
+            this.Type.TabIndex = 7;
             // 
-            // textBox4
+            // Status
             // 
-            this.textBox4.Location = new System.Drawing.Point(460, 96);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 22);
-            this.textBox4.TabIndex = 8;
+            this.Status.Location = new System.Drawing.Point(460, 96);
+            this.Status.Name = "Status";
+            this.Status.Size = new System.Drawing.Size(100, 22);
+            this.Status.TabIndex = 8;
             // 
             // button1
             // 
@@ -146,6 +148,7 @@
             this.button3.TabIndex = 11;
             this.button3.Text = "Edit";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
@@ -155,6 +158,7 @@
             this.button4.TabIndex = 12;
             this.button4.Text = "Delete";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // Materials
             // 
@@ -165,16 +169,15 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.Status);
+            this.Controls.Add(this.Type);
+            this.Controls.Add(this.Name);
+            this.Controls.Add(this.ID);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
-            this.Name = "Materials";
             this.Text = "Materials";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
@@ -189,10 +192,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox ID;
+        private System.Windows.Forms.TextBox Name;
+        private System.Windows.Forms.TextBox Type;
+        private System.Windows.Forms.TextBox Status;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
