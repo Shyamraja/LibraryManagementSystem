@@ -141,5 +141,28 @@ namespace Librarysystem
             con.Close();
             dataGridView1.Rows.Remove(dataGridView1.SelectedRows[0]);
         }
+
+        private void materialsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Materials formMaterial = new Materials();
+            formMaterial.Show(this);
+
+
+        }
+
+        private void customersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            Customers formCustomers = new Customers();
+            formCustomers.Show(this);
+
+        }
+
+        private void borrowsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Borrows formBorrow = new Borrows();
+            formBorrow.Show(this);
+
+        }
     }
 }

@@ -42,14 +42,19 @@ namespace Librarysystem
             this.Name = new System.Windows.Forms.TextBox();
             this.Phone = new System.Windows.Forms.TextBox();
             this.Age = new System.Windows.Forms.TextBox();
-            this.Gender = new System.Windows.Forms.TextBox();
             this.Material = new System.Windows.Forms.TextBox();
             this.VIEW = new System.Windows.Forms.Button();
             this.EDIT = new System.Windows.Forms.Button();
             this.ADD = new System.Windows.Forms.Button();
             this.DELETE = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Gender = new System.Windows.Forms.ComboBox();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.customersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.materialsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.borrowsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -158,13 +163,6 @@ namespace Librarysystem
             this.Age.Size = new System.Drawing.Size(100, 22);
             this.Age.TabIndex = 12;
             // 
-            // Gender
-            // 
-            this.Gender.Location = new System.Drawing.Point(719, 43);
-            this.Gender.Name = "Gender";
-            this.Gender.Size = new System.Drawing.Size(100, 22);
-            this.Gender.TabIndex = 13;
-            // 
             // Material
             // 
             this.Material.Location = new System.Drawing.Point(719, 92);
@@ -225,18 +223,64 @@ namespace Librarysystem
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             this.dataGridView1.Click += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
+            // Gender
+            // 
+            this.Gender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Gender.FormattingEnabled = true;
+            this.Gender.Items.AddRange(new object[] {
+            "Male",
+            "Female"});
+            this.Gender.Location = new System.Drawing.Point(719, 46);
+            this.Gender.Name = "Gender";
+            this.Gender.Size = new System.Drawing.Size(100, 24);
+            this.Gender.TabIndex = 20;
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.customersToolStripMenuItem,
+            this.materialsToolStripMenuItem,
+            this.borrowsToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(989, 28);
+            this.menuStrip1.TabIndex = 21;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // customersToolStripMenuItem
+            // 
+            this.customersToolStripMenuItem.Name = "customersToolStripMenuItem";
+            this.customersToolStripMenuItem.Size = new System.Drawing.Size(92, 24);
+            this.customersToolStripMenuItem.Text = "Customers";
+            this.customersToolStripMenuItem.Click += new System.EventHandler(this.customersToolStripMenuItem_Click);
+            // 
+            // materialsToolStripMenuItem
+            // 
+            this.materialsToolStripMenuItem.Name = "materialsToolStripMenuItem";
+            this.materialsToolStripMenuItem.Size = new System.Drawing.Size(84, 24);
+            this.materialsToolStripMenuItem.Text = "Materials";
+            this.materialsToolStripMenuItem.Click += new System.EventHandler(this.materialsToolStripMenuItem_Click);
+            // 
+            // borrowsToolStripMenuItem
+            // 
+            this.borrowsToolStripMenuItem.Name = "borrowsToolStripMenuItem";
+            this.borrowsToolStripMenuItem.Size = new System.Drawing.Size(77, 24);
+            this.borrowsToolStripMenuItem.Text = "Borrows";
+            this.borrowsToolStripMenuItem.Click += new System.EventHandler(this.borrowsToolStripMenuItem_Click);
+            // 
             // Customers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(989, 450);
+            this.Controls.Add(this.Gender);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.DELETE);
             this.Controls.Add(this.ADD);
             this.Controls.Add(this.EDIT);
             this.Controls.Add(this.VIEW);
             this.Controls.Add(this.Material);
-            this.Controls.Add(this.Gender);
             this.Controls.Add(this.Age);
             this.Controls.Add(this.Phone);
             this.Controls.Add(this.Name);
@@ -250,8 +294,12 @@ namespace Librarysystem
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;         
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -272,13 +320,17 @@ namespace Librarysystem
         private System.Windows.Forms.TextBox Name;
         private System.Windows.Forms.TextBox Phone;
         private System.Windows.Forms.TextBox Age;
-        private System.Windows.Forms.TextBox Gender;
         private System.Windows.Forms.TextBox Material;
         private System.Windows.Forms.Button VIEW;
         private System.Windows.Forms.Button EDIT;
         private System.Windows.Forms.Button ADD;
         private System.Windows.Forms.Button DELETE;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.ComboBox Gender;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem customersToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem materialsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem borrowsToolStripMenuItem;
     }
 }
 
