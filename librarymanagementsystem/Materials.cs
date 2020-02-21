@@ -43,7 +43,7 @@ namespace Librarysystem
                 string ID, Name, Type, Status;
                 ID = this.ID.Text;
                 Name = this.Name.Text;
-                Type= this.Type.Text;
+                //Type= this.Type.Text;
                 Status = this.Status.Text;
 
                 sql = "insert into MaterialTable (ID,Name,Type,Status)values(@ID,@Name,@Type,@Status)";
@@ -52,7 +52,7 @@ namespace Librarysystem
                 
                 cmd.Parameters.AddWithValue("@ID", ID);
                 cmd.Parameters.AddWithValue("@Name", Name);
-                cmd.Parameters.AddWithValue("@Type", Type);
+                //cmd.Parameters.AddWithValue("@Type", Type);
                 cmd.Parameters.AddWithValue("@Status", Status);
                 cmd.ExecuteNonQuery();
                
@@ -60,8 +60,8 @@ namespace Librarysystem
                 con.Close();
                 this.ID.Clear();
                 this.Name.Clear();
-                this.Type.Clear();
-                this.Status.Clear();              
+                //this.Type.Clear();
+                //this.Status.Clear();              
 
             }
             catch (Exception ex)
@@ -87,7 +87,7 @@ namespace Librarysystem
         {           
             ID.Text = "";
             Name.Text = "";
-            Type.Text = "";
+            //Type.Text = "";
             Status.Text = "";
         }
         private void FillFields()
@@ -100,7 +100,7 @@ namespace Librarysystem
         }
         private void button3_Click(object sender, EventArgs e)
         {
-            string  Name, Type, Status;
+            string  Name,Type,Status;
  
             Name = this.Name.Text;
             Type = this.Type.Text;
@@ -110,7 +110,7 @@ namespace Librarysystem
                 return;
             int ID = (int)dataGridView1.SelectedRows[0].Cells["ID"].Value;
 
-            sql = "Update MaterialTable set Name = @Name,Type = @Type,Status = @Status where ID = @ID ";
+            sql = "Update MaterialTable set Name = @Name, Type = @Type, Status =@Status where ID = @ID ";
             con.Open();
             OleDbCommand cmd = new OleDbCommand(sql, con);
 
@@ -124,8 +124,8 @@ namespace Librarysystem
             con.Close();
    
             this.Name.Clear();
-            this.Type.Clear();
-            this.Status.Clear();        
+            //this.Type.Clear();
+            //this.Status.Clear();        
         }
         private void button4_Click(object sender, EventArgs e)
         {

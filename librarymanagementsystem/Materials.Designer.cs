@@ -35,8 +35,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.ID = new System.Windows.Forms.TextBox();
             this.Name = new System.Windows.Forms.TextBox();
-            this.Type = new System.Windows.Forms.TextBox();
-            this.Status = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -45,6 +43,8 @@
             this.customersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.materialsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.borrowsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Status = new System.Windows.Forms.ComboBox();
+            this.Type = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -110,20 +110,6 @@
             this.Name.Name = "Name";
             this.Name.Size = new System.Drawing.Size(100, 22);
             this.Name.TabIndex = 6;
-            // 
-            // Type
-            // 
-            this.Type.Location = new System.Drawing.Point(460, 49);
-            this.Type.Name = "Type";
-            this.Type.Size = new System.Drawing.Size(100, 22);
-            this.Type.TabIndex = 7;
-            // 
-            // Status
-            // 
-            this.Status.Location = new System.Drawing.Point(460, 96);
-            this.Status.Name = "Status";
-            this.Status.Size = new System.Drawing.Size(100, 22);
-            this.Status.TabIndex = 8;
             // 
             // button1
             // 
@@ -198,18 +184,41 @@
             this.borrowsToolStripMenuItem.Text = "Borrows";
             this.borrowsToolStripMenuItem.Click += new System.EventHandler(this.borrowsToolStripMenuItem_Click);
             // 
+            // Status
+            // 
+            this.Status.FormattingEnabled = true;
+            this.Status.Items.AddRange(new object[] {
+            "Open",
+            "Booked"});
+            this.Status.Location = new System.Drawing.Point(449, 89);
+            this.Status.Name = "Status";
+            this.Status.Size = new System.Drawing.Size(105, 24);
+            this.Status.TabIndex = 23;
+            // 
+            // Type
+            // 
+            this.Type.FormattingEnabled = true;
+            this.Type.Items.AddRange(new object[] {
+            "Book",
+            "CD",
+            "Documents"});
+            this.Type.Location = new System.Drawing.Point(449, 42);
+            this.Type.Name = "Type";
+            this.Type.Size = new System.Drawing.Size(105, 24);
+            this.Type.TabIndex = 24;
+            // 
             // Materials
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Type);
+            this.Controls.Add(this.Status);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.Status);
-            this.Controls.Add(this.Type);
             this.Controls.Add(this.Name);
             this.Controls.Add(this.ID);
             this.Controls.Add(this.label4);
@@ -234,8 +243,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox ID;
         private System.Windows.Forms.TextBox Name;
-        private System.Windows.Forms.TextBox Type;
-        private System.Windows.Forms.TextBox Status;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
@@ -244,5 +251,7 @@
         private System.Windows.Forms.ToolStripMenuItem customersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem materialsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem borrowsToolStripMenuItem;
+        private System.Windows.Forms.ComboBox Status;
+        private System.Windows.Forms.ComboBox Type;
     }
 }
