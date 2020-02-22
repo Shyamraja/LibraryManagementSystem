@@ -43,7 +43,7 @@ namespace Librarysystem
                 string ID, Name, Type, Status;
                 ID = this.ID.Text;
                 Name = this.Name.Text;
-                //Type= this.Type.Text;
+                Type= this.Type.Text;
                 Status = this.Status.Text;
 
                 sql = "insert into MaterialTable (ID,Name,Type,Status)values(@ID,@Name,@Type,@Status)";
@@ -52,16 +52,14 @@ namespace Librarysystem
                 
                 cmd.Parameters.AddWithValue("@ID", ID);
                 cmd.Parameters.AddWithValue("@Name", Name);
-                //cmd.Parameters.AddWithValue("@Type", Type);
+                cmd.Parameters.AddWithValue("@Type", Type);
                 cmd.Parameters.AddWithValue("@Status", Status);
                 cmd.ExecuteNonQuery();
                
-                MessageBox.Show("Value Added to Data Table");
+                MessageBox.Show("Values are Added to the Data Table");
                 con.Close();
                 this.ID.Clear();
-                this.Name.Clear();
-                //this.Type.Clear();
-                //this.Status.Clear();              
+                this.Name.Clear();                         
 
             }
             catch (Exception ex)
@@ -86,8 +84,7 @@ namespace Librarysystem
         private void ClearField()
         {           
             ID.Text = "";
-            Name.Text = "";
-            //Type.Text = "";
+            Name.Text = "";          
             Status.Text = "";
         }
         private void FillFields()
@@ -120,12 +117,11 @@ namespace Librarysystem
             cmd.Parameters.AddWithValue("@ID", ID);
 
             cmd.ExecuteNonQuery();
-            MessageBox.Show("Select Material ID is Updated!");
+            MessageBox.Show("Selected Material ID data values are Updated!");
             con.Close();
    
             this.Name.Clear();
-            //this.Type.Clear();
-            //this.Status.Clear();        
+                
         }
         private void button4_Click(object sender, EventArgs e)
         {
@@ -141,28 +137,20 @@ namespace Librarysystem
             con.Close();
             dataGridView1.Rows.Remove(dataGridView1.SelectedRows[0]);
         }
-
         private void materialsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Materials formMaterial = new Materials();
             formMaterial.Show(this);
-
-
         }
-
         private void customersToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
             Customers formCustomers = new Customers();
             formCustomers.Show(this);
-
         }
-
         private void borrowsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Borrows formBorrow = new Borrows();
             formBorrow.Show(this);
-
         }
     }
 }

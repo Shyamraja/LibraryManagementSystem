@@ -46,13 +46,12 @@ namespace Librarysystem
                 cmd.Parameters.AddWithValue("@Gender", Gender);
                 cmd.Parameters.AddWithValue("@Material", Material);
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("Added");
+                MessageBox.Show("Data Added to the Customer Table");
                 con.Close();
                 this.CustomerID.Clear();
                 this.Name.Clear();
                 this.Phone.Clear();
-                this.Age.Clear();
-                //this.Gender.SelectedItem.Clear();
+                this.Age.Clear();             
                 this.Material.Clear();
                 dataGridView1.Rows.Add(dataGridView1.SelectedRows[0]);
             }
@@ -122,7 +121,7 @@ namespace Librarysystem
             cmd.Parameters.AddWithValue("@CustomerID", Customerid);
 
             cmd.ExecuteNonQuery();
-            MessageBox.Show("Deleted!");
+            MessageBox.Show("Select Customer Data is DELETED!");
             con.Close();
             dataGridView1.Rows.Remove(dataGridView1.SelectedRows[0]);
            
@@ -140,42 +139,11 @@ namespace Librarysystem
             Age = this.Age.Text;
             Gender = this.Gender.Text;
             Material = this.Material.Text;
-
-            //    sql = "Update CustomerTable set Name = @Name,Phone = @Phone,Age = @Age,Gender = @Gender,Material = @Material where CustomerID = @CustomerID ";
-            //    con.Open();
-            //    OleDbCommand cmd = new OleDbCommand(sql, con);
-            //    cmd.Parameters.AddWithValue("@Name", Name);
-            //    cmd.Parameters.AddWithValue("@Phone", Phone);
-            //    cmd.Parameters.AddWithValue("@Age", Age);
-            //    cmd.Parameters.AddWithValue("@Gender", Gender);
-            //    cmd.Parameters.AddWithValue("@Material", Material);
-            //    cmd.Parameters.AddWithValue("@CustomerID", CustomerID);
-
-            //    cmd.ExecuteNonQuery();
-            //    MessageBox.Show("Added");
-            //    con.Close();
-            //    this.CustomerID.Clear();
-            //    this.Name.Clear();
-            //    this.Phone.Clear();
-            //    this.Age.Clear();
-            //    this.Gender.Clear();
-            //    this.Material.Clear();
-
-            //}
-
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message);
-            //}
-            //finally
-            //{
-            //    if (con.State != ConnectionState.Closed) con.Close();
-            //}
+          
             if (dataGridView1.SelectedRows.Count == 0)
                 return;
             int CustomerID = (int)dataGridView1.SelectedRows[0].Cells["CustomerID"].Value;
-            //string updateQuery = "Update from CustomerTable where Customerid = @CustomerID";
-
+            
             sql = "Update CustomerTable set Name = @Name,Phone = @Phone,Age = @Age,Gender = @Gender,Material = @Material where CustomerID = @CustomerID ";
             con.Open();
             OleDbCommand cmd = new OleDbCommand(sql, con);
@@ -187,15 +155,13 @@ namespace Librarysystem
             cmd.Parameters.AddWithValue("@CustomerID", CustomerID);
 
             cmd.ExecuteNonQuery();
-            MessageBox.Show("Updated!");
+            MessageBox.Show("Data Updated from Selected Customer ID!");
             con.Close();
             this.CustomerID.Clear();
               this.Name.Clear();
              this.Phone.Clear();
-             this.Age.Clear();
-             //this.Gender.Clear();
+             this.Age.Clear();          
              this.Material.Clear();
-
    
         }
 
@@ -211,8 +177,6 @@ namespace Librarysystem
         {
             Materials formMaterial = new Materials();
             formMaterial.Show(this);
-
-
         }
 
         private void borrowsToolStripMenuItem_Click(object sender, EventArgs e)

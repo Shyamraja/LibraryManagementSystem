@@ -75,9 +75,7 @@ namespace Librarysystem
             {
                 if (con.State != ConnectionState.Closed) con.Close();
             }
-
         }
-
 
     private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
@@ -126,7 +124,6 @@ namespace Librarysystem
         {
             string MaterialID, CustomerID, BookedDate, DeliveryDate;
 
-            //ID = this.ID.Text;
             MaterialID = this.MaterialID.Text;
             CustomerID = this.CustomerID.Text;
             BookedDate = this.BookedDate.Text;
@@ -149,7 +146,7 @@ namespace Librarysystem
             cmd.Parameters.AddWithValue("@ID", ID);
 
             cmd.ExecuteNonQuery();
-            MessageBox.Show("Updated!");
+            MessageBox.Show("Data values from Selected ID is Updated!");
             con.Close();
             
             this.MaterialID.Clear();
@@ -157,26 +154,17 @@ namespace Librarysystem
             this.CustomerID.Clear();
             this.BookedDate.Clear();
             this.DeliveryDate.Clear();
-
-
-
-
-
         }
-
         private void customersToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Customers formCustomers = new Customers();
             formCustomers.Show(this);
         }
-
         private void materialsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Materials formMaterial = new Materials();
             formMaterial.Show(this);
-
         }
-
         private void borrowsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Borrows formBorrow = new Borrows();
