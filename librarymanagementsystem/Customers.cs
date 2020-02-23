@@ -40,33 +40,36 @@ namespace Librarysystem
             try
             {
 
-                string CustomerID, Name, Phone, Age, Gender, Material;
-                CustomerID = this.CustomerID.Text;
-                Name = this.Name.Text;
+                string  CustomerName, Phone, Age,Address, Gender, MaterialName;
+                //CustomerID = this.CustomerID.Text;
+                CustomerName = this.CustomerName.Text;
                 Phone = this.Phone.Text;
                 Age = this.Age.Text;
+                Address = this.Address.Text;
                 Gender = this.Gender.Text;
-                Material = this.Material.Text;
+                MaterialName = this.MaterialName.Text;
 
-                sql = "insert into CustomerTable (CustomerID,Name,Phone,Age,Gender,Material)values(@CustomerID,@Name,@Phone,@Age,@Gender,@Material)";
+                sql = "insert into CustomerTable (CustomerName,Phone,Age,Address,Gender,MaterialName)values(@CustomerName,@Phone,@Age,@Address,@Gender,@MaterialName)";
                 con.Open();
                 OleDbCommand cmd = new OleDbCommand(sql, con);
-                cmd.Parameters.AddWithValue("@CustomerID", CustomerID);
-                cmd.Parameters.AddWithValue("@Name", Name);
+             
+                cmd.Parameters.AddWithValue("@CustomerName", CustomerName);
                 cmd.Parameters.AddWithValue("@Phone", Phone);
                 cmd.Parameters.AddWithValue("@Age", Age);
+                cmd.Parameters.AddWithValue("@Address", Address);
                 cmd.Parameters.AddWithValue("@Gender", Gender);
-                cmd.Parameters.AddWithValue("@Material", Material);
+                cmd.Parameters.AddWithValue("@MaterialName", this.MaterialName);
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Data Added to the Customer Table");
                 con.Close();
                 load();
                 this.CustomerID.Clear();
-                this.Name.Clear();
+                this.CustomerName.Clear();
                 this.Phone.Clear();
-                this.Age.Clear();             
-                this.Material.Clear();
-                dataGridView1.Rows.Add(dataGridView1.SelectedRows[0]);
+                this.Age.Clear();
+                this.Address.Clear();
+                this.MaterialName.Clear();
+                //dataGridView1.Rows.Add(dataGridView1.SelectedRows[0]);
             }
 
             catch (Exception ex)
@@ -91,21 +94,23 @@ namespace Librarysystem
 
         private void ClearField()
         {
-            CustomerID.Text = "";
-            Name.Text = "";
+          
+            CustomerName.Text = "";
             Phone.Text = "";
             Age.Text = "";
+            Address.Text = "";
             Gender.Text = "";
-            Material.Text = "";
+            MaterialName.Text = "";
         }
         private void FillFields()
         {
             CustomerID.Text = dataGridView1.SelectedRows[0].Cells["CustomerID"].Value.ToString();
-            Name.Text = dataGridView1.SelectedRows[0].Cells["Name"].Value.ToString();
+            CustomerName.Text = dataGridView1.SelectedRows[0].Cells["CustomerName"].Value.ToString();
             Phone.Text = dataGridView1.SelectedRows[0].Cells["Phone"].Value.ToString();
             Age.Text = dataGridView1.SelectedRows[0].Cells["Age"].Value.ToString();
+            Address.Text = dataGridView1.SelectedRows[0].Cells["Address"].Value.ToString();
             Gender.Text = dataGridView1.SelectedRows[0].Cells["Gender"].Value.ToString();
-            Material.Text = dataGridView1.SelectedRows[0].Cells["Material"].Value.ToString();
+            MaterialName.Text = dataGridView1.SelectedRows[0].Cells["MaterialName"].Value.ToString();
 
         }
 
@@ -121,7 +126,17 @@ namespace Librarysystem
             cmd.Parameters.AddWithValue("@CustomerID", Customerid);
 
             cmd.ExecuteNonQuery();
-            MessageBox.Show("Select Customer Data is DELETED!");
+            DialogResult ans = MessageBox.Show("Do you Want to Delete This Row?", "Confirmation", MessageBoxButtons.YesNo);
+            if (ans == DialogResult.Yes)
+            {
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Selected data row is Deleted!");
+            }
+            else
+            {
+                MessageBox.Show("Selected Data Row not deleted!");
+            }
+
             con.Close();
             load();
             //dataGridView1.Rows.Remove(dataGridView1.SelectedRows[0]);
@@ -133,26 +148,29 @@ namespace Librarysystem
             //try
             //{
 
-            string Name, Phone, Age, Gender, Material;
+            string CustomerName, Phone, Age, Address ,Gender, MaterialName;
            // CustomerID = this.CustomerID.Text;
-            Name = this.Name.Text;
+            CustomerName = this.CustomerName.Text;
             Phone = this.Phone.Text;
             Age = this.Age.Text;
+            Address = this.Address.Text;
             Gender = this.Gender.Text;
-            Material = this.Material.Text;
+
+            MaterialName = this.MaterialName.Text;
           
             if (dataGridView1.SelectedRows.Count == 0)
                 return;
             int CustomerID = (int)dataGridView1.SelectedRows[0].Cells["CustomerID"].Value;
             
-            sql = "Update CustomerTable set Name = @Name,Phone = @Phone,Age = @Age,Gender = @Gender,Material = @Material where CustomerID = @CustomerID ";
+            sql = "Update CustomerTable set CustomerName = @CustomerName,Phone = @Phone,Age = @Age, Address =@Address,Gender = @Gender,MaterialName = @MaterialName where CustomerID = @CustomerID ";
             con.Open();
             OleDbCommand cmd = new OleDbCommand(sql, con);
-            cmd.Parameters.AddWithValue("@Name", Name);
+            cmd.Parameters.AddWithValue("@CustomerName", CustomerName);
             cmd.Parameters.AddWithValue("@Phone", Phone);
             cmd.Parameters.AddWithValue("@Age", Age);
-            cmd.Parameters.AddWithValue("@Gender", Gender);
-            cmd.Parameters.AddWithValue("@Material", Material);
+            cmd.Parameters.AddWithValue("@Address", Address);
+            cmd.Parameters.AddWithValue("@Gender", Gender);          
+            cmd.Parameters.AddWithValue("@MaterialName", MaterialName);
             cmd.Parameters.AddWithValue("@CustomerID", CustomerID);
 
             cmd.ExecuteNonQuery();
@@ -160,10 +178,11 @@ namespace Librarysystem
             con.Close();
             load();
             this.CustomerID.Clear();
-              this.Name.Clear();
+              this.CustomerName.Clear();
              this.Phone.Clear();
-             this.Age.Clear();          
-             this.Material.Clear();
+             this.Age.Clear();
+             this.Address.Clear();
+             this.MaterialName.Clear();
    
         }
 
@@ -198,6 +217,8 @@ namespace Librarysystem
             formLogin.Show(this);
             this.Hide();
         }
+
+       
     }
     }
 
