@@ -189,55 +189,55 @@ namespace Librarysystem
         }
 
       
-        private void customersToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Customers formCustomers = new Customers();
-            formCustomers.Show(this);
-            this.Hide();
+        //private void customersToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+        //    Customers formCustomers = new Customers();
+        //    formCustomers.Show(this);
+        //    this.Hide();
 
-        }
+        //}
 
-        private void materialsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Materials formMaterial = new Materials();
-            formMaterial.Show(this);
-            this.Hide();
-        }
+        //private void materialsToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+        //    Materials formMaterial = new Materials();
+        //    formMaterial.Show(this);
+        //    this.Hide();
+        //}
 
-        private void borrowsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Borrows formBorrow = new Borrows();
-            formBorrow.Show(this);
-            this.Hide();
+        //private void borrowsToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+        //    Borrows formBorrow = new Borrows();
+        //    formBorrow.Show(this);
+        //    this.Hide();
 
-        }
+        //}
 
-        private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            DialogResult ans = MessageBox.Show("Do you Want to Logout?", "Confirmation", MessageBoxButtons.YesNo);
-            if (ans == DialogResult.Yes)
-            {
+        //private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+        //    DialogResult ans = MessageBox.Show("Do you Want to Logout?", "Confirmation", MessageBoxButtons.YesNo);
+        //    if (ans == DialogResult.Yes)
+        //    {
 
-                MessageBox.Show("You are Successfully Logout please add Username or password to Login!");
-                Login formLogin = new Login();
-                formLogin.Show(this);
-                this.Hide();
-            }
-            else
-            {
-                Materials formMaterial = new Materials();
-                formMaterial.Show(this);
-                this.Hide();
-            }
-        }
+        //        MessageBox.Show("You are Successfully Logout please add Username AND password to Login!");
+        //        Login formLogin = new Login();
+        //        formLogin.Show(this);
+        //        this.Hide();
+        //    }
+        //    else
+        //    {
+        //        Materials formMaterial = new Materials();
+        //        formMaterial.Show(this);
+        //        this.Hide();
+        //    }
+        //}
 
         private void CANCEL_Click(object sender, EventArgs e)
         {
-            DialogResult ans = MessageBox.Show("Do you Want to Cancel This Window?", "Confirmation", MessageBoxButtons.YesNo);
+            DialogResult ans = MessageBox.Show("Do you Want to Cancel This Operation?", "Confirmation", MessageBoxButtons.YesNo);
             if (ans == DialogResult.Yes)
             {
                 this.Hide();
-                MessageBox.Show("Cancelled!");
+                MessageBox.Show("Operation was Cancelled!");
             }
             else
             {
@@ -252,6 +252,11 @@ namespace Librarysystem
         {
             DateTime time = DateTime.Now;
             this.timer.Text = time.ToString();
+        }
+
+        private void Customers_Load(object sender, EventArgs e)
+        {
+
         }
     }
   

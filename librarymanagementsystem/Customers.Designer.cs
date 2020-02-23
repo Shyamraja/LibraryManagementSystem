@@ -49,11 +49,6 @@ namespace Librarysystem
             this.DELETE = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Gender = new System.Windows.Forms.ComboBox();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.customersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.materialsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.borrowsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.Address = new System.Windows.Forms.TextBox();
@@ -61,7 +56,6 @@ namespace Librarysystem
             this.timer = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -122,7 +116,7 @@ namespace Librarysystem
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(359, 82);
+            this.label7.Location = new System.Drawing.Point(368, 84);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(41, 20);
             this.label7.TabIndex = 6;
@@ -132,7 +126,7 @@ namespace Librarysystem
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(628, 87);
+            this.label8.Location = new System.Drawing.Point(709, 86);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(70, 20);
             this.label8.TabIndex = 7;
@@ -142,7 +136,7 @@ namespace Librarysystem
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(628, 123);
+            this.label9.Location = new System.Drawing.Point(709, 122);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(77, 20);
             this.label9.TabIndex = 8;
@@ -158,28 +152,28 @@ namespace Librarysystem
             // 
             // CustomerName
             // 
-            this.CustomerName.Location = new System.Drawing.Point(153, 84);
+            this.CustomerName.Location = new System.Drawing.Point(159, 84);
             this.CustomerName.Name = "CustomerName";
             this.CustomerName.Size = new System.Drawing.Size(100, 22);
             this.CustomerName.TabIndex = 10;
             // 
             // Phone
             // 
-            this.Phone.Location = new System.Drawing.Point(153, 120);
+            this.Phone.Location = new System.Drawing.Point(159, 120);
             this.Phone.Name = "Phone";
             this.Phone.Size = new System.Drawing.Size(100, 22);
             this.Phone.TabIndex = 11;
             // 
             // Age
             // 
-            this.Age.Location = new System.Drawing.Point(422, 82);
+            this.Age.Location = new System.Drawing.Point(455, 82);
             this.Age.Name = "Age";
             this.Age.Size = new System.Drawing.Size(100, 22);
             this.Age.TabIndex = 12;
             // 
             // MaterialName
             // 
-            this.MaterialName.Location = new System.Drawing.Point(736, 120);
+            this.MaterialName.Location = new System.Drawing.Point(814, 123);
             this.MaterialName.Name = "MaterialName";
             this.MaterialName.Size = new System.Drawing.Size(100, 22);
             this.MaterialName.TabIndex = 14;
@@ -233,7 +227,7 @@ namespace Librarysystem
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(977, 258);
+            this.dataGridView1.Size = new System.Drawing.Size(1027, 258);
             this.dataGridView1.TabIndex = 19;
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             this.dataGridView1.Click += new System.EventHandler(this.dataGridView1_SelectionChanged);
@@ -245,54 +239,10 @@ namespace Librarysystem
             this.Gender.Items.AddRange(new object[] {
             "Male",
             "Female"});
-            this.Gender.Location = new System.Drawing.Point(736, 82);
+            this.Gender.Location = new System.Drawing.Point(814, 84);
             this.Gender.Name = "Gender";
             this.Gender.Size = new System.Drawing.Size(100, 24);
             this.Gender.TabIndex = 20;
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.customersToolStripMenuItem,
-            this.materialsToolStripMenuItem,
-            this.borrowsToolStripMenuItem,
-            this.logoutToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(999, 40);
-            this.menuStrip1.TabIndex = 21;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // customersToolStripMenuItem
-            // 
-            this.customersToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.customersToolStripMenuItem.Name = "customersToolStripMenuItem";
-            this.customersToolStripMenuItem.Size = new System.Drawing.Size(150, 36);
-            this.customersToolStripMenuItem.Text = "Customers";
-            this.customersToolStripMenuItem.Click += new System.EventHandler(this.customersToolStripMenuItem_Click);
-            // 
-            // materialsToolStripMenuItem
-            // 
-            this.materialsToolStripMenuItem.Name = "materialsToolStripMenuItem";
-            this.materialsToolStripMenuItem.Size = new System.Drawing.Size(135, 36);
-            this.materialsToolStripMenuItem.Text = "Materials";
-            this.materialsToolStripMenuItem.Click += new System.EventHandler(this.materialsToolStripMenuItem_Click);
-            // 
-            // borrowsToolStripMenuItem
-            // 
-            this.borrowsToolStripMenuItem.Name = "borrowsToolStripMenuItem";
-            this.borrowsToolStripMenuItem.Size = new System.Drawing.Size(124, 36);
-            this.borrowsToolStripMenuItem.Text = "Borrows";
-            this.borrowsToolStripMenuItem.Click += new System.EventHandler(this.borrowsToolStripMenuItem_Click);
-            // 
-            // logoutToolStripMenuItem
-            // 
-            this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(110, 36);
-            this.logoutToolStripMenuItem.Text = "Logout";
-            this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
             // 
             // label10
             // 
@@ -300,7 +250,7 @@ namespace Librarysystem
             this.label10.BackColor = System.Drawing.Color.Honeydew;
             this.label10.Font = new System.Drawing.Font("Microsoft YaHei UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.Green;
-            this.label10.Location = new System.Drawing.Point(32, 40);
+            this.label10.Location = new System.Drawing.Point(32, 21);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(359, 31);
             this.label10.TabIndex = 22;
@@ -310,7 +260,7 @@ namespace Librarysystem
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(338, 123);
+            this.label11.Location = new System.Drawing.Point(368, 123);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(78, 20);
             this.label11.TabIndex = 23;
@@ -318,7 +268,7 @@ namespace Librarysystem
             // 
             // Address
             // 
-            this.Address.Location = new System.Drawing.Point(422, 120);
+            this.Address.Location = new System.Drawing.Point(455, 121);
             this.Address.Name = "Address";
             this.Address.Size = new System.Drawing.Size(100, 22);
             this.Address.TabIndex = 24;
@@ -340,7 +290,7 @@ namespace Librarysystem
             // 
             this.timer.AutoSize = true;
             this.timer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.timer.Location = new System.Drawing.Point(742, 50);
+            this.timer.Location = new System.Drawing.Point(733, 31);
             this.timer.Name = "timer";
             this.timer.Size = new System.Drawing.Size(46, 18);
             this.timer.TabIndex = 26;
@@ -354,7 +304,7 @@ namespace Librarysystem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(999, 450);
+            this.ClientSize = new System.Drawing.Size(1070, 465);
             this.Controls.Add(this.timer);
             this.Controls.Add(this.CANCEL);
             this.Controls.Add(this.Address);
@@ -379,13 +329,10 @@ namespace Librarysystem
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Customers";
             this.Text = "Customers";
+            this.Load += new System.EventHandler(this.Customers_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -412,11 +359,6 @@ namespace Librarysystem
         private System.Windows.Forms.Button DELETE;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.ComboBox Gender;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem customersToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem materialsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem borrowsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox Address;

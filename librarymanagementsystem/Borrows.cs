@@ -164,46 +164,10 @@ namespace Librarysystem
             //this.BookedDate.Clear();
             //this.ReturnedDate.Clear();
         }
-        private void customersToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Customers formCustomers = new Customers();
-            formCustomers.Show(this);
-            this.Hide();
-        }
-        private void materialsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Materials formMaterial = new Materials();
-            formMaterial.Show(this);
-            this.Hide();
-        }
-        private void borrowsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Borrows formBorrow = new Borrows();
-            formBorrow.Show(this);
-            this.Hide();
-        }
-
-        private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            DialogResult ans = MessageBox.Show("Do you Want to Logout?", "Confirmation", MessageBoxButtons.YesNo);
-            if (ans == DialogResult.Yes)
-            {
-
-                MessageBox.Show("You are Successfully Logout please add Username or password to Login!");
-                Login formLogin = new Login();
-                formLogin.Show(this);
-                this.Hide();
-            }
-            else
-            {
-                Materials formMaterial = new Materials();
-                formMaterial.Show(this);
-                this.Hide();
-            }
-        }
+       
         private void button1_Click(object sender, EventArgs e)
         {
-            DialogResult ans = MessageBox.Show("Do you Want to Cancel This Window?", "Confirmation", MessageBoxButtons.YesNo);
+            DialogResult ans = MessageBox.Show("Do you Want to Cancel This Operation?", "Confirmation", MessageBoxButtons.YesNo);
             if (ans == DialogResult.Yes)
             {
                 this.Hide();

@@ -26,9 +26,10 @@ namespace Librarysystem
             password = textBox2.Text;
             if(username=="Admin"&& password=="Admin1290")
             {
-                MessageBox.Show("You are logged in Successfully");    
-                Main Main = new Main();
-                Main.Show();               
+                MessageBox.Show("You are logged in Successfully");
+                Librarymdiparent mdiparent = new Librarymdiparent();
+                mdiparent.Show();
+                this.Hide();
             }
          else
             {
@@ -38,7 +39,23 @@ namespace Librarysystem
         }
         private void button2_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            //Application.Exit();
+            DialogResult conform = MessageBox.Show("Do you Want to Exit This Application?", "Confirmation", MessageBoxButtons.YesNo);
+            if (conform == DialogResult.Yes)
+            {
+                Application.Exit();
+                            
+            }
+            else
+            {
+                MessageBox.Show("Please input your Username And Password to Login");
+                Login formLogin = new Login();
+                formLogin.Show(this);
+                this.Hide();
+            }
+
+
+
         }
 
        

@@ -51,6 +51,9 @@
     <Compile Include="Borrows.Designer.cs">
       <DependentUpon>Borrows.cs</DependentUpon>
     </Compile>
+    <Compile Include="DatabaselibrarymDataSet.cs">
+      <DependentUpon>DatabaselibrarymDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DatabaselibrarymDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -62,11 +65,17 @@
     <Compile Include="Customers.Designer.cs">
       <DependentUpon>Customers.cs</DependentUpon>
     </Compile>
-    <Compile Include="Main.cs">
+    <Compile Include="Librarymdiparent.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Main.Designer.cs">
-      <DependentUpon>Main.cs</DependentUpon>
+    <Compile Include="Librarymdiparent.Designer.cs">
+      <DependentUpon>Librarymdiparent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
     </Compile>
     <Compile Include="Materials.cs">
       <SubType>Form</SubType>
@@ -82,8 +91,11 @@
     <EmbeddedResource Include="Customers.resx">
       <DependentUpon>Customers.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Main.resx">
-      <DependentUpon>Main.cs</DependentUpon>
+    <EmbeddedResource Include="Librarymdiparent.resx">
+      <DependentUpon>Librarymdiparent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Materials.resx">
       <DependentUpon>Materials.cs</DependentUpon>
