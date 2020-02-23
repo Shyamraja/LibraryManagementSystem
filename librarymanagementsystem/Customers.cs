@@ -20,9 +20,21 @@ namespace Librarysystem
         public Customers()
         {
             InitializeComponent();
+            load();
 
         }
-
+        public void load()
+        {
+            con.Open();
+            OleDbCommand cmd = con.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "select * from CustomerTable";
+            DataTable dt = new DataTable();
+            OleDbDataAdapter da = new OleDbDataAdapter(cmd);
+            da.Fill(dt);
+            dataGridView1.DataSource = dt;
+            con.Close();
+        }
         private void button3_Click(object sender, EventArgs e)
         {
             try
@@ -48,6 +60,7 @@ namespace Librarysystem
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Data Added to the Customer Table");
                 con.Close();
+                load();
                 this.CustomerID.Clear();
                 this.Name.Clear();
                 this.Phone.Clear();
@@ -97,19 +110,6 @@ namespace Librarysystem
         }
 
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            con.Open();
-            OleDbCommand cmd = con.CreateCommand();
-            cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "select * from CustomerTable";
-            DataTable dt = new DataTable();
-            OleDbDataAdapter da = new OleDbDataAdapter(cmd);
-            da.Fill(dt);
-            dataGridView1.DataSource = dt;
-            con.Close();
-        }
-
         private void button4_Click(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count == 0)
@@ -123,8 +123,9 @@ namespace Librarysystem
             cmd.ExecuteNonQuery();
             MessageBox.Show("Select Customer Data is DELETED!");
             con.Close();
-            dataGridView1.Rows.Remove(dataGridView1.SelectedRows[0]);
-           
+            load();
+            //dataGridView1.Rows.Remove(dataGridView1.SelectedRows[0]);
+
         }
 
         private void EDIT_Click(object sender, EventArgs e)
@@ -157,6 +158,7 @@ namespace Librarysystem
             cmd.ExecuteNonQuery();
             MessageBox.Show("Data Updated from Selected Customer ID!");
             con.Close();
+            load();
             this.CustomerID.Clear();
               this.Name.Clear();
              this.Phone.Clear();
@@ -170,6 +172,7 @@ namespace Librarysystem
         {
             Customers formCustomers = new Customers();
             formCustomers.Show(this);
+            this.Hide();
 
         }
 
@@ -177,13 +180,23 @@ namespace Librarysystem
         {
             Materials formMaterial = new Materials();
             formMaterial.Show(this);
+            this.Hide();
         }
 
         private void borrowsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Borrows formBorrow = new Borrows();
             formBorrow.Show(this);
+            this.Hide();
 
+        }
+
+        private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("You are successfully Logout");
+            Login formLogin = new Login();
+            formLogin.Show(this);
+            this.Hide();
         }
     }
     }
