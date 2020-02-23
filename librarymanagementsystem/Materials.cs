@@ -210,10 +210,21 @@ namespace Librarysystem
 
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("You are successfully Logout");          
-            Login formLogin = new Login();
-            formLogin.Show(this);
-            this.Hide();
+            DialogResult ans = MessageBox.Show("Do you Want to Logout?", "Confirmation", MessageBoxButtons.YesNo);
+            if (ans == DialogResult.Yes)
+            {
+             
+                MessageBox.Show("You are Successfully Logout please add Username or password to Login!");
+                Login formLogin = new Login();
+                formLogin.Show(this);
+                this.Hide();
+            }
+            else
+            {
+                Materials formMaterial = new Materials();
+                formMaterial.Show(this);
+            }
+            
         }
     }
 }
