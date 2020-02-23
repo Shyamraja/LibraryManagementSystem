@@ -33,6 +33,7 @@ namespace Librarysystem
             OleDbDataAdapter da = new OleDbDataAdapter(cmd);
             da.Fill(dt);
             dataGridView1.DataSource = dt;
+            timer1.Start();
             con.Close();
         }
         private void button3_Click(object sender, EventArgs e)
@@ -58,7 +59,7 @@ namespace Librarysystem
                 cmd.Parameters.AddWithValue("@Age", Age);
                 cmd.Parameters.AddWithValue("@Address", Address);
                 cmd.Parameters.AddWithValue("@Gender", Gender);
-                cmd.Parameters.AddWithValue("@MaterialName", this.MaterialName);
+                cmd.Parameters.AddWithValue("@MaterialName", MaterialName);
                
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Data Added to the Customer Table");
@@ -70,7 +71,7 @@ namespace Librarysystem
                 this.Age.Clear();
                 this.Address.Clear();
                 this.MaterialName.Clear();
-                dataGridView1.Rows.Add(dataGridView1.SelectedRows[0]);
+                
             }
 
             catch (Exception ex)
@@ -140,7 +141,7 @@ namespace Librarysystem
 
             con.Close();
             load();
-            //dataGridView1.Rows.Remove(dataGridView1.SelectedRows[0]);
+            
 
         }
 
@@ -165,6 +166,7 @@ namespace Librarysystem
             sql = "Update CustomerTable set CustomerName = @CustomerName,Phone = @Phone,Age = @Age, Address =@Address,Gender = @Gender,MaterialName = @MaterialName where CustomerID = @CustomerID ";
             con.Open();
             OleDbCommand cmd = new OleDbCommand(sql, con);
+
             cmd.Parameters.AddWithValue("@CustomerName", CustomerName);
             cmd.Parameters.AddWithValue("@Phone", Phone);
             cmd.Parameters.AddWithValue("@Age", Age);
@@ -177,8 +179,8 @@ namespace Librarysystem
             MessageBox.Show("Data Updated from Selected Customer ID!");
             con.Close();
             load();
-            this.CustomerID.Clear();
-              this.CustomerName.Clear();
+           
+             this.CustomerName.Clear();
              this.Phone.Clear();
              this.Age.Clear();
              this.Address.Clear();
@@ -212,18 +214,48 @@ namespace Librarysystem
 
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("You are successfully Logout");
-            Login formLogin = new Login();
-            formLogin.Show(this);
-            this.Hide();
+            DialogResult ans = MessageBox.Show("Do you Want to Logout?", "Confirmation", MessageBoxButtons.YesNo);
+            if (ans == DialogResult.Yes)
+            {
+
+                MessageBox.Show("You are Successfully Logout please add Username or password to Login!");
+                Login formLogin = new Login();
+                formLogin.Show(this);
+                this.Hide();
+            }
+            else
+            {
+                Materials formMaterial = new Materials();
+                formMaterial.Show(this);
+                this.Hide();
+            }
         }
 
         private void CANCEL_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            DialogResult ans = MessageBox.Show("Do you Want to Cancel This Window?", "Confirmation", MessageBoxButtons.YesNo);
+            if (ans == DialogResult.Yes)
+            {
+                this.Hide();
+                MessageBox.Show("Cancelled!");
+            }
+            else
+            {
+
+                Customers formCustomers = new Customers();
+                formCustomers.Show(this);
+                this.Hide();
+            }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            DateTime time = DateTime.Now;
+            this.timer.Text = time.ToString();
         }
     }
-    }
+  
+}
 
     
     

@@ -30,6 +30,7 @@ namespace Librarysystem
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -52,6 +53,8 @@ namespace Librarysystem
             this.button1 = new System.Windows.Forms.Button();
             this.BookedDate = new System.Windows.Forms.DateTimePicker();
             this.ReturnedDate = new System.Windows.Forms.DateTimePicker();
+            this.timer = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -139,6 +142,7 @@ namespace Librarysystem
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 178);
             this.dataGridView1.MultiSelect = false;
@@ -146,7 +150,7 @@ namespace Librarysystem
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(682, 206);
+            this.dataGridView1.Size = new System.Drawing.Size(714, 250);
             this.dataGridView1.TabIndex = 11;
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
@@ -155,7 +159,7 @@ namespace Librarysystem
             this.button2.BackColor = System.Drawing.Color.LightGreen;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.Black;
-            this.button2.Location = new System.Drawing.Point(69, 407);
+            this.button2.Location = new System.Drawing.Point(60, 438);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(83, 31);
             this.button2.TabIndex = 13;
@@ -167,7 +171,7 @@ namespace Librarysystem
             // 
             this.button3.BackColor = System.Drawing.Color.LightGreen;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(235, 407);
+            this.button3.Location = new System.Drawing.Point(230, 438);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(83, 31);
             this.button3.TabIndex = 14;
@@ -179,7 +183,7 @@ namespace Librarysystem
             // 
             this.button4.BackColor = System.Drawing.Color.Red;
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(402, 407);
+            this.button4.Location = new System.Drawing.Point(395, 438);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(88, 31);
             this.button4.TabIndex = 15;
@@ -237,8 +241,8 @@ namespace Librarysystem
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Crimson;
-            this.label5.Location = new System.Drawing.Point(246, 49);
+            this.label5.ForeColor = System.Drawing.Color.Green;
+            this.label5.Location = new System.Drawing.Point(42, 49);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(333, 29);
             this.label5.TabIndex = 23;
@@ -248,7 +252,7 @@ namespace Librarysystem
             // 
             this.button1.BackColor = System.Drawing.Color.Tomato;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(555, 407);
+            this.button1.Location = new System.Drawing.Point(555, 438);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(88, 31);
             this.button1.TabIndex = 24;
@@ -271,11 +275,26 @@ namespace Librarysystem
             this.ReturnedDate.Size = new System.Drawing.Size(247, 22);
             this.ReturnedDate.TabIndex = 26;
             // 
+            // timer
+            // 
+            this.timer.AutoSize = true;
+            this.timer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timer.Location = new System.Drawing.Point(534, 59);
+            this.timer.Name = "timer";
+            this.timer.Size = new System.Drawing.Size(52, 20);
+            this.timer.TabIndex = 27;
+            this.timer.Text = "timer";
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // Borrows
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 481);
+            this.Controls.Add(this.timer);
             this.Controls.Add(this.ReturnedDate);
             this.Controls.Add(this.BookedDate);
             this.Controls.Add(this.button1);
@@ -328,5 +347,7 @@ namespace Librarysystem
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DateTimePicker BookedDate;
         private System.Windows.Forms.DateTimePicker ReturnedDate;
+        private System.Windows.Forms.Label timer;
+        private System.Windows.Forms.Timer timer1;
     }
 }

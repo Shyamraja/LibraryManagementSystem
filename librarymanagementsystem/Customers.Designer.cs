@@ -29,6 +29,7 @@ namespace Librarysystem
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -57,6 +58,8 @@ namespace Librarysystem
             this.label11 = new System.Windows.Forms.Label();
             this.Address = new System.Windows.Forms.TextBox();
             this.CANCEL = new System.Windows.Forms.Button();
+            this.timer = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -162,7 +165,7 @@ namespace Librarysystem
             // 
             // Phone
             // 
-            this.Phone.Location = new System.Drawing.Point(153, 123);
+            this.Phone.Location = new System.Drawing.Point(153, 120);
             this.Phone.Name = "Phone";
             this.Phone.Size = new System.Drawing.Size(100, 22);
             this.Phone.TabIndex = 11;
@@ -176,7 +179,7 @@ namespace Librarysystem
             // 
             // MaterialName
             // 
-            this.MaterialName.Location = new System.Drawing.Point(736, 123);
+            this.MaterialName.Location = new System.Drawing.Point(736, 120);
             this.MaterialName.Name = "MaterialName";
             this.MaterialName.Size = new System.Drawing.Size(100, 22);
             this.MaterialName.TabIndex = 14;
@@ -223,13 +226,14 @@ namespace Librarysystem
             // 
             // dataGridView1
             // 
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 148);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 151);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(948, 261);
+            this.dataGridView1.Size = new System.Drawing.Size(977, 258);
             this.dataGridView1.TabIndex = 19;
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             this.dataGridView1.Click += new System.EventHandler(this.dataGridView1_SelectionChanged);
@@ -257,7 +261,7 @@ namespace Librarysystem
             this.logoutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(989, 40);
+            this.menuStrip1.Size = new System.Drawing.Size(999, 40);
             this.menuStrip1.TabIndex = 21;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -295,8 +299,8 @@ namespace Librarysystem
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.Color.Honeydew;
             this.label10.Font = new System.Drawing.Font("Microsoft YaHei UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.Crimson;
-            this.label10.Location = new System.Drawing.Point(301, 38);
+            this.label10.ForeColor = System.Drawing.Color.Green;
+            this.label10.Location = new System.Drawing.Point(32, 40);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(359, 31);
             this.label10.TabIndex = 22;
@@ -314,7 +318,7 @@ namespace Librarysystem
             // 
             // Address
             // 
-            this.Address.Location = new System.Drawing.Point(422, 123);
+            this.Address.Location = new System.Drawing.Point(422, 120);
             this.Address.Name = "Address";
             this.Address.Size = new System.Drawing.Size(100, 22);
             this.Address.TabIndex = 24;
@@ -332,11 +336,26 @@ namespace Librarysystem
             this.CANCEL.UseVisualStyleBackColor = false;
             this.CANCEL.Click += new System.EventHandler(this.CANCEL_Click);
             // 
+            // timer
+            // 
+            this.timer.AutoSize = true;
+            this.timer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timer.Location = new System.Drawing.Point(742, 50);
+            this.timer.Name = "timer";
+            this.timer.Size = new System.Drawing.Size(46, 18);
+            this.timer.TabIndex = 26;
+            this.timer.Text = "timer";
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // Customers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(989, 450);
+            this.ClientSize = new System.Drawing.Size(999, 450);
+            this.Controls.Add(this.timer);
             this.Controls.Add(this.CANCEL);
             this.Controls.Add(this.Address);
             this.Controls.Add(this.label11);
@@ -402,6 +421,8 @@ namespace Librarysystem
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox Address;
         private System.Windows.Forms.Button CANCEL;
+        private System.Windows.Forms.Label timer;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 

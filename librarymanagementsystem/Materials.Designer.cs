@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -51,8 +52,10 @@
             this.Author = new System.Windows.Forms.TextBox();
             this.ISBN = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.PublicationDate = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.PublicationDate = new System.Windows.Forms.DateTimePicker();
+            this.timer = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -84,7 +87,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(115, 83);
+            this.label2.Location = new System.Drawing.Point(58, 82);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(57, 20);
             this.label2.TabIndex = 2;
@@ -94,7 +97,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(115, 129);
+            this.label3.Location = new System.Drawing.Point(58, 126);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(49, 20);
             this.label3.TabIndex = 3;
@@ -104,7 +107,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(367, 83);
+            this.label4.Location = new System.Drawing.Point(331, 85);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(63, 20);
             this.label4.TabIndex = 4;
@@ -120,7 +123,7 @@
             // 
             // Name
             // 
-            this.Name.Location = new System.Drawing.Point(179, 78);
+            this.Name.Location = new System.Drawing.Point(130, 85);
             this.Name.Name = "Name";
             this.Name.Size = new System.Drawing.Size(140, 22);
             this.Name.TabIndex = 6;
@@ -213,7 +216,7 @@
             this.Status.Items.AddRange(new object[] {
             "Open",
             "Booked"});
-            this.Status.Location = new System.Drawing.Point(456, 78);
+            this.Status.Location = new System.Drawing.Point(415, 85);
             this.Status.Name = "Status";
             this.Status.Size = new System.Drawing.Size(149, 24);
             this.Status.TabIndex = 23;
@@ -225,7 +228,7 @@
             "Book",
             "CD",
             "Documents"});
-            this.Type.Location = new System.Drawing.Point(174, 124);
+            this.Type.Location = new System.Drawing.Point(130, 126);
             this.Type.Name = "Type";
             this.Type.Size = new System.Drawing.Size(145, 24);
             this.Type.TabIndex = 24;
@@ -234,8 +237,8 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Red;
-            this.label5.Location = new System.Drawing.Point(347, 44);
+            this.label5.ForeColor = System.Drawing.Color.Green;
+            this.label5.Location = new System.Drawing.Point(95, 46);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(343, 29);
             this.label5.TabIndex = 25;
@@ -245,7 +248,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(365, 131);
+            this.label6.Location = new System.Drawing.Point(331, 126);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(64, 20);
             this.label6.TabIndex = 26;
@@ -255,7 +258,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(687, 85);
+            this.label7.Location = new System.Drawing.Point(664, 89);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(52, 20);
             this.label7.TabIndex = 27;
@@ -263,16 +266,16 @@
             // 
             // Author
             // 
-            this.Author.Location = new System.Drawing.Point(456, 124);
+            this.Author.Location = new System.Drawing.Point(415, 128);
             this.Author.Name = "Author";
             this.Author.Size = new System.Drawing.Size(149, 22);
             this.Author.TabIndex = 28;
             // 
             // ISBN
             // 
-            this.ISBN.Location = new System.Drawing.Point(771, 76);
+            this.ISBN.Location = new System.Drawing.Point(788, 85);
             this.ISBN.Name = "ISBN";
-            this.ISBN.Size = new System.Drawing.Size(146, 22);
+            this.ISBN.Size = new System.Drawing.Size(197, 22);
             this.ISBN.TabIndex = 29;
             // 
             // label8
@@ -285,13 +288,6 @@
             this.label8.TabIndex = 30;
             this.label8.Text = "PublicationDate";
             // 
-            // PublicationDate
-            // 
-            this.PublicationDate.Location = new System.Drawing.Point(772, 121);
-            this.PublicationDate.Name = "PublicationDate";
-            this.PublicationDate.Size = new System.Drawing.Size(145, 22);
-            this.PublicationDate.TabIndex = 31;
-            // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.Tomato;
@@ -303,6 +299,28 @@
             this.button1.TabIndex = 32;
             this.button1.Text = "CANCEL";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // PublicationDate
+            // 
+            this.PublicationDate.Location = new System.Drawing.Point(788, 126);
+            this.PublicationDate.Name = "PublicationDate";
+            this.PublicationDate.Size = new System.Drawing.Size(206, 22);
+            this.PublicationDate.TabIndex = 33;
+            // 
+            // timer
+            // 
+            this.timer.AutoSize = true;
+            this.timer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timer.Location = new System.Drawing.Point(760, 57);
+            this.timer.Name = "timer";
+            this.timer.Size = new System.Drawing.Size(46, 18);
+            this.timer.TabIndex = 34;
+            this.timer.Text = "timer";
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Materials
             // 
@@ -310,8 +328,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1063, 451);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.timer);
             this.Controls.Add(this.PublicationDate);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.ISBN);
             this.Controls.Add(this.Author);
@@ -332,7 +351,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
             this.ForeColor = System.Drawing.Color.Black;
-            //this.Name = "Materials";
+           
             this.Padding = new System.Windows.Forms.Padding(5);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
@@ -367,7 +386,9 @@
         private System.Windows.Forms.TextBox Author;
         private System.Windows.Forms.TextBox ISBN;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox PublicationDate;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DateTimePicker PublicationDate;
+        private System.Windows.Forms.Label timer;
+        private System.Windows.Forms.Timer timer1;
     }
 }

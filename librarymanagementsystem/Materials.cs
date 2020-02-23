@@ -34,40 +34,30 @@ namespace Librarysystem
             OleDbDataAdapter da = new OleDbDataAdapter(cmd);
             da.Fill(dt);
             dataGridView1.DataSource = dt;
+            timer1.Start();
             con.Close();
         }
-        //private void button1_Click(object sender, EventArgs e)
-        //{
-        //    con.Open();
-        //    OleDbCommand cmd = con.CreateCommand();
-        //    cmd.CommandType = CommandType.Text;
-        //    cmd.CommandText = "select * from MaterialTable";
-        //    DataTable dt = new DataTable();
-        //    OleDbDataAdapter da = new OleDbDataAdapter(cmd);
-        //    da.Fill(dt);
-        //    dataGridView1.DataSource = dt;
-        //    con.Close();
-        //}
+       
         private void button2_Click(object sender, EventArgs e)
         {
             try
             {
 
-                string Name, Type, Status, Author, ISBN, PublicationDate;
+                string Name, Type, Status, Author, ISBN;
                
                 Name = this.Name.Text;
                 Type= this.Type.Text;
                 Status = this.Status.Text;
                 Author = this.Author.Text;
                 ISBN = this.ISBN.Text;
-                PublicationDate = this.PublicationDate.Text;
+                //PublicationDate = this.PublicationDate.Text;
 
 
                 sql = "insert into MaterialTable (Name,Type,Status,Author,ISBN,PublicationDate)values(@Name,@Type,@Status,@Author,@ISBN,@PublicationDate)";
                 con.Open();
                 OleDbCommand cmd = new OleDbCommand(sql, con);
                 
-                //cmd.Parameters.AddWithValue("@MaterialID", MaterialID);
+               
                 cmd.Parameters.AddWithValue("@Name", Name);
                 cmd.Parameters.AddWithValue("@Type", Type);
                 cmd.Parameters.AddWithValue("@Status", Status);
@@ -85,7 +75,7 @@ namespace Librarysystem
                 this.Name.Clear();
                 this.Author.Clear();
                 this.ISBN.Clear();
-                this.PublicationDate.Clear();
+               
 
 
             }
@@ -131,14 +121,14 @@ namespace Librarysystem
         }
         private void button3_Click(object sender, EventArgs e)
         {
-            string  Name,Type,Status, Author, ISBN, PublicationDate;
+            string  Name,Type,Status, Author, ISBN;
  
             Name = this.Name.Text;
             Type = this.Type.Text;
             Status = this.Status.Text;
             Author = this.Author.Text;
             ISBN = this.ISBN.Text;
-            PublicationDate = this.PublicationDate.Text;
+           
 
             if (dataGridView1.SelectedRows.Count == 0)
                 return;
@@ -157,13 +147,13 @@ namespace Librarysystem
             cmd.Parameters.AddWithValue("@MaterialID", MaterialID);
 
             cmd.ExecuteNonQuery();
-           
+            MessageBox.Show("Data values from Selected ID is Updated!");
             con.Close();
             load();
             this.Name.Clear();
             this.Author.Clear();
             this.ISBN.Clear();
-            this.PublicationDate.Clear();
+         
 
         }
         private void button4_Click(object sender, EventArgs e)
@@ -223,8 +213,34 @@ namespace Librarysystem
             {
                 Materials formMaterial = new Materials();
                 formMaterial.Show(this);
+                this.Hide();
             }
             
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DialogResult ans = MessageBox.Show("Do you Want to Cancel This Window?", "Confirmation", MessageBoxButtons.YesNo);
+            if (ans == DialogResult.Yes)
+            {
+                this.Hide();
+                MessageBox.Show("Cancelled!");
+            }
+            else
+            {
+                Materials formMaterial = new Materials();
+                formMaterial.Show(this);
+                this.Hide();
+            }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            {
+                DateTime time = DateTime.Now;
+                this.timer.Text = time.ToString();
+            }
+
         }
     }
 }

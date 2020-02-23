@@ -18,6 +18,8 @@ namespace Librarysystem
         OleDbCommand cmd;
         OleDbDataReader dr;
         string sql;
+        
+
         public Borrows()
         {
             InitializeComponent();
@@ -33,19 +35,19 @@ namespace Librarysystem
             OleDbDataAdapter da = new OleDbDataAdapter(cmd);
             da.Fill(dt);
             dataGridView1.DataSource = dt;
+            timer1.Start();
             con.Close();
         }
-       
+
         private void button2_Click(object sender, EventArgs e)
         {
             try
             {
-                string  MaterialID, CustomerID;
-                //BorrowID = this.BorrowID.Text;
+                string MaterialID, CustomerID;
+               
                 MaterialID = this.MaterialID.Text;
                 CustomerID = this.CustomerID.Text;
-                //BookedDate = this.BookedDate.Text;
-                //ReturnedDate = this.ReturnedDate.Text;
+                
 
                 sql = "insert into BorrowTable ( MaterialID, CustomerID,BookedDate, ReturnedDate)values(@MaterialID,@CustomerID,@BookedDate,@ReturnedDate)";
                 con.Open();
@@ -57,15 +59,14 @@ namespace Librarysystem
                 cmd.Parameters.AddWithValue("@ReturnedDate", ReturnedDate);
 
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("Added");
+                MessageBox.Show("Data Added to Data Table for Borrows");
                 con.Close();
                 load();
-                //this.BorrowID.Clear();
+                
                 this.MaterialID.Clear();
                 this.CustomerID.Clear();
-                //this.BookedDate.Clear();
-                //this.ReturnedDate.Clear();
-                
+               
+
             }
 
             catch (Exception ex)
@@ -78,7 +79,7 @@ namespace Librarysystem
             }
         }
 
-    private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count == 0)
                 ClearField();
@@ -90,7 +91,7 @@ namespace Librarysystem
 
         private void ClearField()
         {
-            //BorrowID.Text = "";
+            
             MaterialID.Text = "";
             CustomerID.Text = "";
             BookedDate.Text = "";
@@ -110,11 +111,11 @@ namespace Librarysystem
         {
             if (dataGridView1.SelectedRows.Count == 0)
                 return;
-            int BorrowID = (int) dataGridView1.SelectedRows[0].Cells["BorrowID"].Value;
+            int BorrowID = (int)dataGridView1.SelectedRows[0].Cells["BorrowID"].Value;
             string deleteQuery = "Delete from BorrowTable where BorrowID = @BorrowID";
             con.Open();
             OleDbCommand cmd = new OleDbCommand(deleteQuery, con);
-             cmd.Parameters.AddWithValue("@BorrowID", BorrowID);    
+            cmd.Parameters.AddWithValue("@BorrowID", BorrowID);
             cmd.ExecuteNonQuery();
             DialogResult ans = MessageBox.Show("Do you Want to Delete This Row?", "Confirmation", MessageBoxButtons.YesNo);
             if (ans == DialogResult.Yes)
@@ -136,19 +137,17 @@ namespace Librarysystem
 
             MaterialID = this.MaterialID.Text;
             CustomerID = this.CustomerID.Text;
-            //BookedDate = this.BookedDate.Text;
-            //ReturnedDate = this.ReturnedDate.Text;
-
+           
 
             if (dataGridView1.SelectedRows.Count == 0)
                 return;
             int BorrowID = (int)dataGridView1.SelectedRows[0].Cells["BorrowID"].Value;
-            
+
             sql = "Update BorrowTable set  MaterialID = @MaterialID,CustomerID = @CustomerID,BookedDate = @BookedDate,ReturnedDate = @ReturnedDate where BorrowID = @BorrowID ";
             con.Open();
             OleDbCommand cmd = new OleDbCommand(sql, con);
-           
-           
+
+
             cmd.Parameters.AddWithValue("@MaterialID", MaterialID);
             cmd.Parameters.AddWithValue("@CustomerID", CustomerID);
             cmd.Parameters.AddWithValue("@BookedDate", BookedDate);
@@ -186,12 +185,22 @@ namespace Librarysystem
 
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("You are successfully Logout");
-            Login formLogin = new Login();
-            formLogin.Show(this);
-            this.Hide();
-        }
+            DialogResult ans = MessageBox.Show("Do you Want to Logout?", "Confirmation", MessageBoxButtons.YesNo);
+            if (ans == DialogResult.Yes)
+            {
 
+                MessageBox.Show("You are Successfully Logout please add Username or password to Login!");
+                Login formLogin = new Login();
+                formLogin.Show(this);
+                this.Hide();
+            }
+            else
+            {
+                Materials formMaterial = new Materials();
+                formMaterial.Show(this);
+                this.Hide();
+            }
+        }
         private void button1_Click(object sender, EventArgs e)
         {
             DialogResult ans = MessageBox.Show("Do you Want to Cancel This Window?", "Confirmation", MessageBoxButtons.YesNo);
@@ -207,6 +216,12 @@ namespace Librarysystem
                 this.Hide();
             }
         }
-    }
+   
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            DateTime time = DateTime.Now;
+            this.timer.Text = time.ToString();
+        }
 
+    }
 }
