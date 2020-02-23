@@ -21,9 +21,9 @@ namespace Librarysystem
         public Borrows()
         {
             InitializeComponent();
+            load();
         }
-
-        private void button1_Click(object sender, EventArgs e)
+        public void load()
         {
             con.Open();
             OleDbCommand cmd = con.CreateCommand();
@@ -35,36 +35,37 @@ namespace Librarysystem
             dataGridView1.DataSource = dt;
             con.Close();
         }
-
+       
         private void button2_Click(object sender, EventArgs e)
         {
             try
             {
-                string ID, MaterialID, CustomerID, BookedDate, DeliveryDate;
-                ID = this.ID.Text;
+                string  MaterialID, CustomerID;
+                //BorrowID = this.BorrowID.Text;
                 MaterialID = this.MaterialID.Text;
                 CustomerID = this.CustomerID.Text;
-                BookedDate = this.BookedDate.Text;
-                DeliveryDate = this.DeliveryDate.Text;
+                //BookedDate = this.BookedDate.Text;
+                //ReturnedDate = this.ReturnedDate.Text;
 
-                sql = "insert into BorrowTable (ID, MaterialID, CustomerID, BookedDate, DeliveryDate)values(@ID,@MaterialID,@CustomerID,@BookedDate,@DeliveryDate)";
+                sql = "insert into BorrowTable ( MaterialID, CustomerID,BookedDate, ReturnedDate)values(@MaterialID,@CustomerID,@BookedDate,@ReturnedDate)";
                 con.Open();
                 OleDbCommand cmd = new OleDbCommand(sql, con);
-                cmd.Parameters.AddWithValue("@ID", ID);
+                //cmd.Parameters.AddWithValue("@BorrowID", BorrowID);
                 cmd.Parameters.AddWithValue("@MaterialID", MaterialID);
                 cmd.Parameters.AddWithValue("@CustomerID", CustomerID);
                 cmd.Parameters.AddWithValue("@BookedDate", BookedDate);
-                cmd.Parameters.AddWithValue("@DeliveryDate", DeliveryDate);
+                cmd.Parameters.AddWithValue("@ReturnedDate", ReturnedDate);
 
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Added");
                 con.Close();
-                this.ID.Clear();
+                load();
+                //this.BorrowID.Clear();
                 this.MaterialID.Clear();
                 this.CustomerID.Clear();
-                this.BookedDate.Clear();
-                this.DeliveryDate.Clear();
-                //dataGridView1.Rows.Add(dataGridView1.SelectedRows[0]);
+                //this.BookedDate.Clear();
+                //this.ReturnedDate.Clear();
+                
             }
 
             catch (Exception ex)
@@ -89,52 +90,61 @@ namespace Librarysystem
 
         private void ClearField()
         {
-            ID.Text = "";
+            //BorrowID.Text = "";
             MaterialID.Text = "";
             CustomerID.Text = "";
             BookedDate.Text = "";
-            DeliveryDate.Text = "";
+            ReturnedDate.Text = "";
 
         }
         private void FillFields()
         {
-            ID.Text = dataGridView1.SelectedRows[0].Cells["ID"].Value.ToString();
+            //BorrowID.Text = dataGridView1.SelectedRows[0].Cells["BorrowID"].Value.ToString();
             MaterialID.Text = dataGridView1.SelectedRows[0].Cells["MaterialID"].Value.ToString();
             CustomerID.Text = dataGridView1.SelectedRows[0].Cells["CustomerID"].Value.ToString();
             BookedDate.Text = dataGridView1.SelectedRows[0].Cells["BookedDate"].Value.ToString();
-            DeliveryDate.Text = dataGridView1.SelectedRows[0].Cells["DeliveryDate"].Value.ToString();
+            ReturnedDate.Text = dataGridView1.SelectedRows[0].Cells["ReturnedDate"].Value.ToString();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count == 0)
                 return;
-            int id =(int) dataGridView1.SelectedRows[0].Cells["ID"].Value;
-            string deleteQuery = "Delete from BorrowTable where id = @ID" ;
+            int BorrowID = (int) dataGridView1.SelectedRows[0].Cells["BorrowID"].Value;
+            string deleteQuery = "Delete from BorrowTable where BorrowID = @BorrowID";
             con.Open();
             OleDbCommand cmd = new OleDbCommand(deleteQuery, con);
-             cmd.Parameters.AddWithValue("@ID", id);    
+             cmd.Parameters.AddWithValue("@BorrowID", BorrowID);    
             cmd.ExecuteNonQuery();
-            MessageBox.Show("Selected Borrow data row is Deleted!");
+            DialogResult ans = MessageBox.Show("Do you Want to Delete This Row?", "Confirmation", MessageBoxButtons.YesNo);
+            if (ans == DialogResult.Yes)
+            {
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Selected data row is Deleted!");
+            }
+            else
+            {
+                MessageBox.Show("Selected Data Row not deleted!");
+            }
             con.Close();
-            dataGridView1.Rows.Remove(dataGridView1.SelectedRows[0]);
-             }
+            load();
+        }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            string MaterialID, CustomerID, BookedDate, DeliveryDate;
+            string MaterialID, CustomerID;
 
             MaterialID = this.MaterialID.Text;
             CustomerID = this.CustomerID.Text;
-            BookedDate = this.BookedDate.Text;
-            DeliveryDate = this.DeliveryDate.Text;
+            //BookedDate = this.BookedDate.Text;
+            //ReturnedDate = this.ReturnedDate.Text;
 
 
             if (dataGridView1.SelectedRows.Count == 0)
                 return;
-            int ID = (int)dataGridView1.SelectedRows[0].Cells["ID"].Value;
+            int BorrowID = (int)dataGridView1.SelectedRows[0].Cells["BorrowID"].Value;
             
-            sql = "Update BorrowTable set  MaterialID = @MaterialID,CustomerID = @CustomerID,BookedDate = @BookedDate,DeliveryDate = @DeliveryDate where ID = @ID ";
+            sql = "Update BorrowTable set  MaterialID = @MaterialID,CustomerID = @CustomerID,BookedDate = @BookedDate,ReturnedDate = @ReturnedDate where BorrowID = @BorrowID ";
             con.Open();
             OleDbCommand cmd = new OleDbCommand(sql, con);
            
@@ -142,33 +152,60 @@ namespace Librarysystem
             cmd.Parameters.AddWithValue("@MaterialID", MaterialID);
             cmd.Parameters.AddWithValue("@CustomerID", CustomerID);
             cmd.Parameters.AddWithValue("@BookedDate", BookedDate);
-            cmd.Parameters.AddWithValue("@DeliveryDate", DeliveryDate);
-            cmd.Parameters.AddWithValue("@ID", ID);
+            cmd.Parameters.AddWithValue("@ReturnedDate", ReturnedDate);
+            cmd.Parameters.AddWithValue("@BorrowID", BorrowID);
 
             cmd.ExecuteNonQuery();
             MessageBox.Show("Data values from Selected ID is Updated!");
             con.Close();
-            
+            load();
             this.MaterialID.Clear();
             this.CustomerID.Clear();
             this.CustomerID.Clear();
-            this.BookedDate.Clear();
-            this.DeliveryDate.Clear();
+            //this.BookedDate.Clear();
+            //this.ReturnedDate.Clear();
         }
         private void customersToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Customers formCustomers = new Customers();
             formCustomers.Show(this);
+            this.Hide();
         }
         private void materialsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Materials formMaterial = new Materials();
             formMaterial.Show(this);
+            this.Hide();
         }
         private void borrowsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Borrows formBorrow = new Borrows();
             formBorrow.Show(this);
+            this.Hide();
+        }
+
+        private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("You are successfully Logout");
+            Login formLogin = new Login();
+            formLogin.Show(this);
+            this.Hide();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DialogResult ans = MessageBox.Show("Do you Want to Cancel This Window?", "Confirmation", MessageBoxButtons.YesNo);
+            if (ans == DialogResult.Yes)
+            {
+                this.Hide();
+                MessageBox.Show("Cancelled!");
+            }
+            else
+            {
+                Borrows formBorrow = new Borrows();
+                formBorrow.Show(this);
+                this.Hide();
+            }
         }
     }
 

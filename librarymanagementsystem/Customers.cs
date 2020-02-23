@@ -41,7 +41,7 @@ namespace Librarysystem
             {
 
                 string  CustomerName, Phone, Age,Address, Gender, MaterialName;
-                //CustomerID = this.CustomerID.Text;
+               
                 CustomerName = this.CustomerName.Text;
                 Phone = this.Phone.Text;
                 Age = this.Age.Text;
@@ -59,6 +59,7 @@ namespace Librarysystem
                 cmd.Parameters.AddWithValue("@Address", Address);
                 cmd.Parameters.AddWithValue("@Gender", Gender);
                 cmd.Parameters.AddWithValue("@MaterialName", this.MaterialName);
+               
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Data Added to the Customer Table");
                 con.Close();
@@ -69,7 +70,7 @@ namespace Librarysystem
                 this.Age.Clear();
                 this.Address.Clear();
                 this.MaterialName.Clear();
-                //dataGridView1.Rows.Add(dataGridView1.SelectedRows[0]);
+                dataGridView1.Rows.Add(dataGridView1.SelectedRows[0]);
             }
 
             catch (Exception ex)
@@ -119,13 +120,13 @@ namespace Librarysystem
         {
             if (dataGridView1.SelectedRows.Count == 0)
                 return;
-            int Customerid = (int)dataGridView1.SelectedRows[0].Cells["CustomerID"].Value;
-            string deleteQuery = "Delete from CustomerTable where Customerid = @CustomerID";
+            int CustomerID = (int)dataGridView1.SelectedRows[0].Cells["CustomerID"].Value;
+            string deleteQuery = "Delete from CustomerTable where CustomerID = @CustomerID";
             con.Open();
             OleDbCommand cmd = new OleDbCommand(deleteQuery, con);
-            cmd.Parameters.AddWithValue("@CustomerID", Customerid);
+            cmd.Parameters.AddWithValue("@CustomerID", CustomerID);
 
-            cmd.ExecuteNonQuery();
+            //cmd.ExecuteNonQuery();
             DialogResult ans = MessageBox.Show("Do you Want to Delete This Row?", "Confirmation", MessageBoxButtons.YesNo);
             if (ans == DialogResult.Yes)
             {
@@ -145,11 +146,10 @@ namespace Librarysystem
 
         private void EDIT_Click(object sender, EventArgs e)
         {
-            //try
-            //{
+            
 
             string CustomerName, Phone, Age, Address ,Gender, MaterialName;
-           // CustomerID = this.CustomerID.Text;
+          
             CustomerName = this.CustomerName.Text;
             Phone = this.Phone.Text;
             Age = this.Age.Text;
@@ -218,7 +218,10 @@ namespace Librarysystem
             this.Hide();
         }
 
-       
+        private void CANCEL_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
     }
     }
 
