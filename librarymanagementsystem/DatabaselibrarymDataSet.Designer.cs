@@ -1001,7 +1001,7 @@ namespace Librarysystem {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class MaterialTableDataTable : global::System.Data.TypedTableBase<MaterialTableRow> {
             
-            private global::System.Data.DataColumn columnID;
+            private global::System.Data.DataColumn columnMaterialID;
             
             private global::System.Data.DataColumn columnName;
             
@@ -1044,9 +1044,9 @@ namespace Librarysystem {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn IDColumn {
+            public global::System.Data.DataColumn MaterialIDColumn {
                 get {
-                    return this.columnID;
+                    return this.columnMaterialID;
                 }
             }
             
@@ -1125,9 +1125,9 @@ namespace Librarysystem {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public MaterialTableRow FindByID(int ID) {
+            public MaterialTableRow FindByMaterialID(int MaterialID) {
                 return ((MaterialTableRow)(this.Rows.Find(new object[] {
-                            ID})));
+                            MaterialID})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1147,7 +1147,7 @@ namespace Librarysystem {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
-                this.columnID = base.Columns["ID"];
+                this.columnMaterialID = base.Columns["MaterialID"];
                 this.columnName = base.Columns["Name"];
                 this.columnType = base.Columns["Type"];
                 this.columnStatus = base.Columns["Status"];
@@ -1156,8 +1156,8 @@ namespace Librarysystem {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitClass() {
-                this.columnID = new global::System.Data.DataColumn("ID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnID);
+                this.columnMaterialID = new global::System.Data.DataColumn("MaterialID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMaterialID);
                 this.columnName = new global::System.Data.DataColumn("Name", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnName);
                 this.columnType = new global::System.Data.DataColumn("Type", typeof(string), null, global::System.Data.MappingType.Element);
@@ -1165,12 +1165,11 @@ namespace Librarysystem {
                 this.columnStatus = new global::System.Data.DataColumn("Status", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnStatus);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnID}, true));
-                this.columnID.AutoIncrement = true;
-                this.columnID.AutoIncrementSeed = -1;
-                this.columnID.AutoIncrementStep = -1;
-                this.columnID.AllowDBNull = false;
-                this.columnID.Unique = true;
+                                this.columnMaterialID}, true));
+                this.columnMaterialID.AutoIncrement = true;
+                this.columnMaterialID.AutoIncrementSeed = 1;
+                this.columnMaterialID.AllowDBNull = false;
+                this.columnMaterialID.Unique = true;
                 this.columnName.MaxLength = 255;
                 this.columnType.MaxLength = 255;
                 this.columnStatus.MaxLength = 255;
@@ -1620,12 +1619,12 @@ namespace Librarysystem {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int ID {
+            public int MaterialID {
                 get {
-                    return ((int)(this[this.tableMaterialTable.IDColumn]));
+                    return ((int)(this[this.tableMaterialTable.MaterialIDColumn]));
                 }
                 set {
-                    this[this.tableMaterialTable.IDColumn] = value;
+                    this[this.tableMaterialTable.MaterialIDColumn] = value;
                 }
             }
             
@@ -2809,7 +2808,7 @@ namespace Librarysystem.DatabaselibrarymDataSetTableAdapters {
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "MaterialTable";
-            tableMapping.ColumnMappings.Add("ID", "ID");
+            tableMapping.ColumnMappings.Add("MaterialID", "MaterialID");
             tableMapping.ColumnMappings.Add("Name", "Name");
             tableMapping.ColumnMappings.Add("Type", "Type");
             tableMapping.ColumnMappings.Add("Status", "Status");

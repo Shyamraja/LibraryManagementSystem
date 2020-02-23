@@ -201,7 +201,7 @@
               </DbSource>
             </MainSource>
             <Mappings>
-              <Mapping SourceColumn="ID" DataSetColumn="ID" />
+              <Mapping SourceColumn="MaterialID" DataSetColumn="MaterialID" />
               <Mapping SourceColumn="Name" DataSetColumn="Name" />
               <Mapping SourceColumn="Type" DataSetColumn="Type" />
               <Mapping SourceColumn="Status" DataSetColumn="Status" />
@@ -216,7 +216,7 @@
   <xs:element name="DatabaselibrarymDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="DatabaselibrarymDataSet" msprop:Generator_UserDSName="DatabaselibrarymDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="BorrowTable" msprop:Generator_TableClassName="BorrowTableDataTable" msprop:Generator_TableVarName="tableBorrowTable" msprop:Generator_TablePropName="BorrowTable" msprop:Generator_RowDeletingName="BorrowTableRowDeleting" msprop:Generator_RowChangingName="BorrowTableRowChanging" msprop:Generator_RowEvHandlerName="BorrowTableRowChangeEventHandler" msprop:Generator_RowDeletedName="BorrowTableRowDeleted" msprop:Generator_UserTableName="BorrowTable" msprop:Generator_RowChangedName="BorrowTableRowChanged" msprop:Generator_RowEvArgName="BorrowTableRowChangeEvent" msprop:Generator_RowClassName="BorrowTableRow">
+        <xs:element name="BorrowTable" msprop:Generator_TableClassName="BorrowTableDataTable" msprop:Generator_TableVarName="tableBorrowTable" msprop:Generator_RowChangedName="BorrowTableRowChanged" msprop:Generator_TablePropName="BorrowTable" msprop:Generator_RowDeletingName="BorrowTableRowDeleting" msprop:Generator_RowChangingName="BorrowTableRowChanging" msprop:Generator_RowEvHandlerName="BorrowTableRowChangeEventHandler" msprop:Generator_RowDeletedName="BorrowTableRowDeleted" msprop:Generator_RowClassName="BorrowTableRow" msprop:Generator_UserTableName="BorrowTable" msprop:Generator_RowEvArgName="BorrowTableRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
@@ -227,7 +227,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="CustomerTable" msprop:Generator_TableClassName="CustomerTableDataTable" msprop:Generator_TableVarName="tableCustomerTable" msprop:Generator_TablePropName="CustomerTable" msprop:Generator_RowDeletingName="CustomerTableRowDeleting" msprop:Generator_RowChangingName="CustomerTableRowChanging" msprop:Generator_RowEvHandlerName="CustomerTableRowChangeEventHandler" msprop:Generator_RowDeletedName="CustomerTableRowDeleted" msprop:Generator_UserTableName="CustomerTable" msprop:Generator_RowChangedName="CustomerTableRowChanged" msprop:Generator_RowEvArgName="CustomerTableRowChangeEvent" msprop:Generator_RowClassName="CustomerTableRow">
+        <xs:element name="CustomerTable" msprop:Generator_TableClassName="CustomerTableDataTable" msprop:Generator_TableVarName="tableCustomerTable" msprop:Generator_RowChangedName="CustomerTableRowChanged" msprop:Generator_TablePropName="CustomerTable" msprop:Generator_RowDeletingName="CustomerTableRowDeleting" msprop:Generator_RowChangingName="CustomerTableRowChanging" msprop:Generator_RowEvHandlerName="CustomerTableRowChangeEventHandler" msprop:Generator_RowDeletedName="CustomerTableRowDeleted" msprop:Generator_RowClassName="CustomerTableRow" msprop:Generator_UserTableName="CustomerTable" msprop:Generator_RowEvArgName="CustomerTableRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="CustomerID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnCustomerID" msprop:Generator_ColumnPropNameInRow="CustomerID" msprop:Generator_ColumnPropNameInTable="CustomerIDColumn" msprop:Generator_UserColumnName="CustomerID" type="xs:int" />
@@ -263,10 +263,10 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="MaterialTable" msprop:Generator_TableClassName="MaterialTableDataTable" msprop:Generator_TableVarName="tableMaterialTable" msprop:Generator_TablePropName="MaterialTable" msprop:Generator_RowDeletingName="MaterialTableRowDeleting" msprop:Generator_RowChangingName="MaterialTableRowChanging" msprop:Generator_RowEvHandlerName="MaterialTableRowChangeEventHandler" msprop:Generator_RowDeletedName="MaterialTableRowDeleted" msprop:Generator_UserTableName="MaterialTable" msprop:Generator_RowChangedName="MaterialTableRowChanged" msprop:Generator_RowEvArgName="MaterialTableRowChangeEvent" msprop:Generator_RowClassName="MaterialTableRow">
+        <xs:element name="MaterialTable" msprop:Generator_TableClassName="MaterialTableDataTable" msprop:Generator_TableVarName="tableMaterialTable" msprop:Generator_RowChangedName="MaterialTableRowChanged" msprop:Generator_TablePropName="MaterialTable" msprop:Generator_RowDeletingName="MaterialTableRowDeleting" msprop:Generator_RowChangingName="MaterialTableRowChanging" msprop:Generator_RowEvHandlerName="MaterialTableRowChangeEventHandler" msprop:Generator_RowDeletedName="MaterialTableRowDeleted" msprop:Generator_RowClassName="MaterialTableRow" msprop:Generator_UserTableName="MaterialTable" msprop:Generator_RowEvArgName="MaterialTableRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
+              <xs:element name="MaterialID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="1" msprop:Generator_ColumnVarNameInTable="columnMaterialID" msprop:Generator_ColumnPropNameInRow="MaterialID" msprop:Generator_ColumnPropNameInTable="MaterialIDColumn" msprop:Generator_UserColumnName="MaterialID" type="xs:int" />
               <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -303,7 +303,7 @@
     </xs:unique>
     <xs:unique name="MaterialTable_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:MaterialTable" />
-      <xs:field xpath="mstns:ID" />
+      <xs:field xpath="mstns:MaterialID" />
     </xs:unique>
   </xs:element>
 </xs:schema>
