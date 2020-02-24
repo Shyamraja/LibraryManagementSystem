@@ -183,9 +183,9 @@ namespace Librarysystem
             this.EDIT.BackColor = System.Drawing.Color.LightGreen;
             this.EDIT.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EDIT.ForeColor = System.Drawing.Color.Black;
-            this.EDIT.Location = new System.Drawing.Point(285, 415);
+            this.EDIT.Location = new System.Drawing.Point(275, 420);
             this.EDIT.Name = "EDIT";
-            this.EDIT.Size = new System.Drawing.Size(75, 33);
+            this.EDIT.Size = new System.Drawing.Size(116, 33);
             this.EDIT.TabIndex = 16;
             this.EDIT.Text = "EDIT";
             this.EDIT.UseVisualStyleBackColor = false;
@@ -196,9 +196,9 @@ namespace Librarysystem
             this.ADD.BackColor = System.Drawing.Color.LightGreen;
             this.ADD.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ADD.ForeColor = System.Drawing.Color.Black;
-            this.ADD.Location = new System.Drawing.Point(90, 415);
+            this.ADD.Location = new System.Drawing.Point(78, 420);
             this.ADD.Name = "ADD";
-            this.ADD.Size = new System.Drawing.Size(75, 33);
+            this.ADD.Size = new System.Drawing.Size(109, 33);
             this.ADD.TabIndex = 17;
             this.ADD.Text = "ADD";
             this.ADD.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -210,9 +210,9 @@ namespace Librarysystem
             this.DELETE.BackColor = System.Drawing.Color.Red;
             this.DELETE.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DELETE.ForeColor = System.Drawing.Color.Black;
-            this.DELETE.Location = new System.Drawing.Point(484, 415);
+            this.DELETE.Location = new System.Drawing.Point(480, 420);
             this.DELETE.Name = "DELETE";
-            this.DELETE.Size = new System.Drawing.Size(94, 33);
+            this.DELETE.Size = new System.Drawing.Size(111, 33);
             this.DELETE.TabIndex = 18;
             this.DELETE.Text = "DELETE";
             this.DELETE.UseVisualStyleBackColor = false;
@@ -228,7 +228,7 @@ namespace Librarysystem
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(1027, 258);
-            this.dataGridView1.TabIndex = 19;
+            this.dataGridView1.TabIndex = 19;          
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             this.dataGridView1.Click += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
@@ -275,10 +275,10 @@ namespace Librarysystem
             // 
             // CANCEL
             // 
-            this.CANCEL.BackColor = System.Drawing.Color.LightGreen;
+            this.CANCEL.BackColor = System.Drawing.Color.Orange;
             this.CANCEL.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CANCEL.ForeColor = System.Drawing.Color.Black;
-            this.CANCEL.Location = new System.Drawing.Point(705, 415);
+            this.CANCEL.Location = new System.Drawing.Point(692, 420);
             this.CANCEL.Name = "CANCEL";
             this.CANCEL.Size = new System.Drawing.Size(104, 33);
             this.CANCEL.TabIndex = 25;
@@ -331,7 +331,6 @@ namespace Librarysystem
             this.Controls.Add(this.label1);
             this.Name = "Customers";
             this.Text = "Customers";
-            this.Load += new System.EventHandler(this.Customers_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

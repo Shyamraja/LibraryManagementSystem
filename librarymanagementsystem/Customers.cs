@@ -13,9 +13,8 @@ namespace Librarysystem
 {
     public partial class Customers : Form
     {
-        OleDbConnection con = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Owner\Desktop\Library\Databaselibrarym.mdb");
-        OleDbCommand cmd;
-        OleDbDataReader dr;
+        OleDbConnection con = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Owner\Source\repos\Librarysystem\Databaselibrarym.mdb");
+   
         string sql;
         public Customers()
         {
@@ -127,7 +126,7 @@ namespace Librarysystem
             OleDbCommand cmd = new OleDbCommand(deleteQuery, con);
             cmd.Parameters.AddWithValue("@CustomerID", CustomerID);
 
-            //cmd.ExecuteNonQuery();
+            
             DialogResult ans = MessageBox.Show("Do you Want to Delete This Row?", "Confirmation", MessageBoxButtons.YesNo);
             if (ans == DialogResult.Yes)
             {
@@ -140,6 +139,7 @@ namespace Librarysystem
             }
 
             con.Close();
+            dataGridView1.Rows.Remove(dataGridView1.SelectedRows[0]);
             load();
             
 
@@ -189,62 +189,19 @@ namespace Librarysystem
         }
 
       
-        //private void customersToolStripMenuItem_Click(object sender, EventArgs e)
-        //{
-        //    Customers formCustomers = new Customers();
-        //    formCustomers.Show(this);
-        //    this.Hide();
-
-        //}
-
-        //private void materialsToolStripMenuItem_Click(object sender, EventArgs e)
-        //{
-        //    Materials formMaterial = new Materials();
-        //    formMaterial.Show(this);
-        //    this.Hide();
-        //}
-
-        //private void borrowsToolStripMenuItem_Click(object sender, EventArgs e)
-        //{
-        //    Borrows formBorrow = new Borrows();
-        //    formBorrow.Show(this);
-        //    this.Hide();
-
-        //}
-
-        //private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
-        //{
-        //    DialogResult ans = MessageBox.Show("Do you Want to Logout?", "Confirmation", MessageBoxButtons.YesNo);
-        //    if (ans == DialogResult.Yes)
-        //    {
-
-        //        MessageBox.Show("You are Successfully Logout please add Username AND password to Login!");
-        //        Login formLogin = new Login();
-        //        formLogin.Show(this);
-        //        this.Hide();
-        //    }
-        //    else
-        //    {
-        //        Materials formMaterial = new Materials();
-        //        formMaterial.Show(this);
-        //        this.Hide();
-        //    }
-        //}
-
+       
         private void CANCEL_Click(object sender, EventArgs e)
         {
             DialogResult ans = MessageBox.Show("Do you Want to Cancel This Operation?", "Confirmation", MessageBoxButtons.YesNo);
             if (ans == DialogResult.Yes)
             {
-                this.Hide();
-                MessageBox.Show("Operation was Cancelled!");
+                ClearField();
+                MessageBox.Show("Cancelled Operation!");
             }
             else
             {
+                FillFields();
 
-                Customers formCustomers = new Customers();
-                formCustomers.Show(this);
-                this.Hide();
             }
         }
 
@@ -254,10 +211,7 @@ namespace Librarysystem
             this.timer.Text = time.ToString();
         }
 
-        private void Customers_Load(object sender, EventArgs e)
-        {
-
-        }
+     
     }
   
 }

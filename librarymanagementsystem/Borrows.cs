@@ -4,7 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
+using System.Text; 
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.OleDb;
@@ -14,9 +14,9 @@ namespace Librarysystem
 {
     public partial class Borrows : Form
     {
-        OleDbConnection con = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Owner\Desktop\Library\Databaselibrarym.mdb");
-        OleDbCommand cmd;
-        OleDbDataReader dr;
+        OleDbConnection con = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Owner\Source\repos\Librarysystem\Databaselibrarym.mdb");
+        //OleDbCommand cmd;
+        //OleDbDataReader dr;
         string sql;
         
 
@@ -31,6 +31,7 @@ namespace Librarysystem
             OleDbCommand cmd = con.CreateCommand();
             cmd.CommandType = CommandType.Text;
             cmd.CommandText = "select * from BorrowTable";
+
             DataTable dt = new DataTable();
             OleDbDataAdapter da = new OleDbDataAdapter(cmd);
             da.Fill(dt);
@@ -52,7 +53,7 @@ namespace Librarysystem
                 sql = "insert into BorrowTable ( MaterialID, CustomerID,BookedDate, ReturnedDate)values(@MaterialID,@CustomerID,@BookedDate,@ReturnedDate)";
                 con.Open();
                 OleDbCommand cmd = new OleDbCommand(sql, con);
-                //cmd.Parameters.AddWithValue("@BorrowID", BorrowID);
+                
                 cmd.Parameters.AddWithValue("@MaterialID", MaterialID);
                 cmd.Parameters.AddWithValue("@CustomerID", CustomerID);
                 cmd.Parameters.AddWithValue("@BookedDate", BookedDate);
@@ -100,7 +101,7 @@ namespace Librarysystem
         }
         private void FillFields()
         {
-            //BorrowID.Text = dataGridView1.SelectedRows[0].Cells["BorrowID"].Value.ToString();
+           
             MaterialID.Text = dataGridView1.SelectedRows[0].Cells["MaterialID"].Value.ToString();
             CustomerID.Text = dataGridView1.SelectedRows[0].Cells["CustomerID"].Value.ToString();
             BookedDate.Text = dataGridView1.SelectedRows[0].Cells["BookedDate"].Value.ToString();
@@ -161,8 +162,7 @@ namespace Librarysystem
             this.MaterialID.Clear();
             this.CustomerID.Clear();
             this.CustomerID.Clear();
-            //this.BookedDate.Clear();
-            //this.ReturnedDate.Clear();
+          
         }
        
         private void button1_Click(object sender, EventArgs e)
@@ -170,14 +170,13 @@ namespace Librarysystem
             DialogResult ans = MessageBox.Show("Do you Want to Cancel This Operation?", "Confirmation", MessageBoxButtons.YesNo);
             if (ans == DialogResult.Yes)
             {
-                this.Hide();
-                MessageBox.Show("Cancelled!");
+                ClearField();
+                MessageBox.Show("Cancelled Operation!");
             }
             else
             {
-                Borrows formBorrow = new Borrows();
-                formBorrow.Show(this);
-                this.Hide();
+                FillFields();
+
             }
         }
    
@@ -186,6 +185,6 @@ namespace Librarysystem
             DateTime time = DateTime.Now;
             this.timer.Text = time.ToString();
         }
-
+        
     }
 }

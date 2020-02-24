@@ -101,7 +101,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(331, 85);
+            this.label4.Location = new System.Drawing.Point(327, 85);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(63, 20);
             this.label4.TabIndex = 4;
@@ -117,7 +117,7 @@
             // 
             // Name
             // 
-            this.Name.Location = new System.Drawing.Point(130, 85);
+            this.Name.Location = new System.Drawing.Point(125, 85);
             this.Name.Name = "Name";
             this.Name.Size = new System.Drawing.Size(140, 22);
             this.Name.TabIndex = 6;
@@ -126,9 +126,9 @@
             // 
             this.btnAdd.BackColor = System.Drawing.Color.LightGreen;
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Location = new System.Drawing.Point(146, 415);
+            this.btnAdd.Location = new System.Drawing.Point(134, 414);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(88, 30);
+            this.btnAdd.Size = new System.Drawing.Size(100, 31);
             this.btnAdd.TabIndex = 10;
             this.btnAdd.Text = "ADD";
             this.btnAdd.UseVisualStyleBackColor = false;
@@ -138,9 +138,9 @@
             // 
             this.button3.BackColor = System.Drawing.Color.LightGreen;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(365, 409);
+            this.button3.Location = new System.Drawing.Point(355, 415);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(89, 31);
+            this.button3.Size = new System.Drawing.Size(99, 30);
             this.button3.TabIndex = 11;
             this.button3.Text = "EDIT";
             this.button3.UseVisualStyleBackColor = false;
@@ -151,9 +151,9 @@
             this.btnDelete.BackColor = System.Drawing.Color.Red;
             this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelete.ForeColor = System.Drawing.Color.Black;
-            this.btnDelete.Location = new System.Drawing.Point(547, 410);
+            this.btnDelete.Location = new System.Drawing.Point(547, 415);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(110, 30);
+            this.btnDelete.Size = new System.Drawing.Size(103, 30);
             this.btnDelete.TabIndex = 12;
             this.btnDelete.Text = "DELETE";
             this.btnDelete.UseVisualStyleBackColor = false;
@@ -165,7 +165,7 @@
             this.Status.Items.AddRange(new object[] {
             "Open",
             "Booked"});
-            this.Status.Location = new System.Drawing.Point(415, 85);
+            this.Status.Location = new System.Drawing.Point(411, 85);
             this.Status.Name = "Status";
             this.Status.Size = new System.Drawing.Size(149, 24);
             this.Status.TabIndex = 23;
@@ -177,7 +177,7 @@
             "Book",
             "CD",
             "Documents"});
-            this.Type.Location = new System.Drawing.Point(130, 126);
+            this.Type.Location = new System.Drawing.Point(125, 126);
             this.Type.Name = "Type";
             this.Type.Size = new System.Drawing.Size(145, 24);
             this.Type.TabIndex = 24;
@@ -197,7 +197,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(331, 126);
+            this.label6.Location = new System.Drawing.Point(327, 126);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(64, 20);
             this.label6.TabIndex = 26;
@@ -207,7 +207,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(664, 89);
+            this.label7.Location = new System.Drawing.Point(660, 89);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(52, 20);
             this.label7.TabIndex = 27;
@@ -215,23 +215,23 @@
             // 
             // Author
             // 
-            this.Author.Location = new System.Drawing.Point(415, 128);
+            this.Author.Location = new System.Drawing.Point(411, 128);
             this.Author.Name = "Author";
             this.Author.Size = new System.Drawing.Size(149, 22);
             this.Author.TabIndex = 28;
             // 
             // ISBN
             // 
-            this.ISBN.Location = new System.Drawing.Point(788, 85);
+            this.ISBN.Location = new System.Drawing.Point(775, 85);
             this.ISBN.Name = "ISBN";
-            this.ISBN.Size = new System.Drawing.Size(197, 22);
+            this.ISBN.Size = new System.Drawing.Size(232, 22);
             this.ISBN.TabIndex = 29;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(629, 126);
+            this.label8.Location = new System.Drawing.Point(617, 126);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(142, 20);
             this.label8.TabIndex = 30;
@@ -239,7 +239,7 @@
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.Tomato;
+            this.button1.BackColor = System.Drawing.Color.Orange;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.Black;
             this.button1.Location = new System.Drawing.Point(717, 415);
@@ -252,16 +252,17 @@
             // 
             // PublicationDate
             // 
-            this.PublicationDate.Location = new System.Drawing.Point(788, 126);
+            this.PublicationDate.Location = new System.Drawing.Point(774, 126);
             this.PublicationDate.Name = "PublicationDate";
-            this.PublicationDate.Size = new System.Drawing.Size(206, 22);
+            this.PublicationDate.Size = new System.Drawing.Size(233, 22);
             this.PublicationDate.TabIndex = 33;
+            this.PublicationDate.Value = new System.DateTime(2020, 2, 24, 0, 0, 0, 0);
             // 
             // timer
             // 
             this.timer.AutoSize = true;
             this.timer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.timer.Location = new System.Drawing.Point(758, 35);
+            this.timer.Location = new System.Drawing.Point(754, 35);
             this.timer.Name = "timer";
             this.timer.Size = new System.Drawing.Size(46, 18);
             this.timer.TabIndex = 34;
@@ -298,8 +299,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
-            this.ForeColor = System.Drawing.Color.Black;
-           
+            this.ForeColor = System.Drawing.Color.Black;          
             this.Padding = new System.Windows.Forms.Padding(5);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

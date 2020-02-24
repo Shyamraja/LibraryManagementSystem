@@ -14,7 +14,7 @@ namespace Librarysystem
 {
     public partial class Materials : Form
     {
-        OleDbConnection con = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Owner\Desktop\Library\Databaselibrarym.mdb");
+        OleDbConnection con = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Owner\Source\repos\Librarysystem\Databaselibrarym.mdb");
         OleDbCommand cmd;
         OleDbDataReader dr;
         string sql;
@@ -31,6 +31,7 @@ namespace Librarysystem
             cmd.CommandType = CommandType.Text;
             cmd.CommandText = "select * from MaterialTable";
             DataTable dt = new DataTable();
+            //creating oledb data adapter using cmd
             OleDbDataAdapter da = new OleDbDataAdapter(cmd);
             da.Fill(dt);
             dataGridView1.DataSource = dt;
@@ -50,7 +51,7 @@ namespace Librarysystem
                 Status = this.Status.Text;
                 Author = this.Author.Text;
                 ISBN = this.ISBN.Text;
-                //PublicationDate = this.PublicationDate.Text;
+               
 
 
                 sql = "insert into MaterialTable (Name,Type,Status,Author,ISBN,PublicationDate)values(@Name,@Type,@Status,@Author,@ISBN,@PublicationDate)";
@@ -64,19 +65,16 @@ namespace Librarysystem
                 cmd.Parameters.AddWithValue("@Author", Author);
                 cmd.Parameters.AddWithValue("@ISBN", ISBN);
                 cmd.Parameters.AddWithValue("@PublicationDate", PublicationDate);
-
-                cmd.ExecuteNonQuery();
-               
+                            
+                cmd.ExecuteNonQuery();                
                 MessageBox.Show("Values are Added to the Data Table");
                 con.Close();
-               
+            
                 load();
                 this.MaterialID.Clear();
                 this.Name.Clear();
                 this.Author.Clear();
                 this.ISBN.Clear();
-               
-
 
             }
             catch (Exception ex)
@@ -111,7 +109,7 @@ namespace Librarysystem
         private void FillFields()
         {
 
-            MaterialID.Text = dataGridView1.SelectedRows[0].Cells["MaterialID"].Value.ToString();
+            
             Name.Text = dataGridView1.SelectedRows[0].Cells["Name"].Value.ToString();
             Type.Text = dataGridView1.SelectedRows[0].Cells["Type"].Value.ToString();
             Status.Text = dataGridView1.SelectedRows[0].Cells["Status"].Value.ToString();
@@ -176,6 +174,7 @@ namespace Librarysystem
                 MessageBox.Show("Selected Data Row not deleted!");
             }
             con.Close();
+            
             load();
            
         }
@@ -183,17 +182,17 @@ namespace Librarysystem
 
         private void button1_Click(object sender, EventArgs e)
         {
+          
             DialogResult ans = MessageBox.Show("Do you Want to Cancel This Operation?", "Confirmation", MessageBoxButtons.YesNo);
             if (ans == DialogResult.Yes)
-            {
-                this.Hide();
-                MessageBox.Show("Cancelled Operation!");
+            {             
+               ClearField();
+               MessageBox.Show("Cancelled Operation!");
             }
             else
-            {
-                Materials formMaterial = new Materials();
-                formMaterial.Show(this);
-                this.Hide();
+            {            
+                FillFields();
+                
             }
         }
 
