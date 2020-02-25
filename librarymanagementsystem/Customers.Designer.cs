@@ -44,17 +44,19 @@ namespace Librarysystem
             this.Phone = new System.Windows.Forms.TextBox();
             this.Age = new System.Windows.Forms.TextBox();
             this.MaterialName = new System.Windows.Forms.TextBox();
-            this.EDIT = new System.Windows.Forms.Button();
-            this.ADD = new System.Windows.Forms.Button();
-            this.DELETE = new System.Windows.Forms.Button();
+            this.btnedit = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.btndel = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Gender = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.Address = new System.Windows.Forms.TextBox();
-            this.CANCEL = new System.Windows.Forms.Button();
+            this.btncan = new System.Windows.Forms.Button();
             this.timer = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.Search = new System.Windows.Forms.Label();
+            this.txtboxSearch = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -178,45 +180,45 @@ namespace Librarysystem
             this.MaterialName.Size = new System.Drawing.Size(100, 22);
             this.MaterialName.TabIndex = 14;
             // 
-            // EDIT
+            // btnedit
             // 
-            this.EDIT.BackColor = System.Drawing.Color.LightGreen;
-            this.EDIT.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EDIT.ForeColor = System.Drawing.Color.Black;
-            this.EDIT.Location = new System.Drawing.Point(275, 420);
-            this.EDIT.Name = "EDIT";
-            this.EDIT.Size = new System.Drawing.Size(116, 33);
-            this.EDIT.TabIndex = 16;
-            this.EDIT.Text = "EDIT";
-            this.EDIT.UseVisualStyleBackColor = false;
-            this.EDIT.Click += new System.EventHandler(this.EDIT_Click);
+            this.btnedit.BackColor = System.Drawing.Color.LightGreen;
+            this.btnedit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnedit.ForeColor = System.Drawing.Color.Black;
+            this.btnedit.Location = new System.Drawing.Point(275, 420);
+            this.btnedit.Name = "btnedit";
+            this.btnedit.Size = new System.Drawing.Size(116, 33);
+            this.btnedit.TabIndex = 16;
+            this.btnedit.Text = "EDIT";
+            this.btnedit.UseVisualStyleBackColor = false;
+            this.btnedit.Click += new System.EventHandler(this.EDIT_Click);
             // 
-            // ADD
+            // btnAdd
             // 
-            this.ADD.BackColor = System.Drawing.Color.LightGreen;
-            this.ADD.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ADD.ForeColor = System.Drawing.Color.Black;
-            this.ADD.Location = new System.Drawing.Point(78, 420);
-            this.ADD.Name = "ADD";
-            this.ADD.Size = new System.Drawing.Size(109, 33);
-            this.ADD.TabIndex = 17;
-            this.ADD.Text = "ADD";
-            this.ADD.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.ADD.UseVisualStyleBackColor = false;
-            this.ADD.Click += new System.EventHandler(this.button3_Click);
+            this.btnAdd.BackColor = System.Drawing.Color.LightGreen;
+            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.ForeColor = System.Drawing.Color.Black;
+            this.btnAdd.Location = new System.Drawing.Point(78, 420);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(109, 33);
+            this.btnAdd.TabIndex = 17;
+            this.btnAdd.Text = "ADD";
+            this.btnAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.button3_Click);
             // 
-            // DELETE
+            // btndel
             // 
-            this.DELETE.BackColor = System.Drawing.Color.Red;
-            this.DELETE.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DELETE.ForeColor = System.Drawing.Color.Black;
-            this.DELETE.Location = new System.Drawing.Point(480, 420);
-            this.DELETE.Name = "DELETE";
-            this.DELETE.Size = new System.Drawing.Size(111, 33);
-            this.DELETE.TabIndex = 18;
-            this.DELETE.Text = "DELETE";
-            this.DELETE.UseVisualStyleBackColor = false;
-            this.DELETE.Click += new System.EventHandler(this.button4_Click);
+            this.btndel.BackColor = System.Drawing.Color.Red;
+            this.btndel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btndel.ForeColor = System.Drawing.Color.Black;
+            this.btndel.Location = new System.Drawing.Point(480, 420);
+            this.btndel.Name = "btndel";
+            this.btndel.Size = new System.Drawing.Size(111, 33);
+            this.btndel.TabIndex = 18;
+            this.btndel.Text = "DELETE";
+            this.btndel.UseVisualStyleBackColor = false;
+            this.btndel.Click += new System.EventHandler(this.button4_Click);
             // 
             // dataGridView1
             // 
@@ -228,7 +230,7 @@ namespace Librarysystem
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(1027, 258);
-            this.dataGridView1.TabIndex = 19;          
+            this.dataGridView1.TabIndex = 19;
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             this.dataGridView1.Click += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
@@ -273,24 +275,24 @@ namespace Librarysystem
             this.Address.Size = new System.Drawing.Size(100, 22);
             this.Address.TabIndex = 24;
             // 
-            // CANCEL
+            // btncan
             // 
-            this.CANCEL.BackColor = System.Drawing.Color.Orange;
-            this.CANCEL.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CANCEL.ForeColor = System.Drawing.Color.Black;
-            this.CANCEL.Location = new System.Drawing.Point(692, 420);
-            this.CANCEL.Name = "CANCEL";
-            this.CANCEL.Size = new System.Drawing.Size(104, 33);
-            this.CANCEL.TabIndex = 25;
-            this.CANCEL.Text = "CANCEL";
-            this.CANCEL.UseVisualStyleBackColor = false;
-            this.CANCEL.Click += new System.EventHandler(this.CANCEL_Click);
+            this.btncan.BackColor = System.Drawing.Color.Orange;
+            this.btncan.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btncan.ForeColor = System.Drawing.Color.Black;
+            this.btncan.Location = new System.Drawing.Point(692, 420);
+            this.btncan.Name = "btncan";
+            this.btncan.Size = new System.Drawing.Size(104, 33);
+            this.btncan.TabIndex = 25;
+            this.btncan.Text = "CANCEL";
+            this.btncan.UseVisualStyleBackColor = false;
+            this.btncan.Click += new System.EventHandler(this.CANCEL_Click);
             // 
             // timer
             // 
             this.timer.AutoSize = true;
             this.timer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.timer.Location = new System.Drawing.Point(733, 31);
+            this.timer.Location = new System.Drawing.Point(792, 31);
             this.timer.Name = "timer";
             this.timer.Size = new System.Drawing.Size(46, 18);
             this.timer.TabIndex = 26;
@@ -300,21 +302,41 @@ namespace Librarysystem
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // Search
+            // 
+            this.Search.AutoSize = true;
+            this.Search.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Search.Location = new System.Drawing.Point(451, 33);
+            this.Search.Name = "Search";
+            this.Search.Size = new System.Drawing.Size(68, 20);
+            this.Search.TabIndex = 27;
+            this.Search.Text = "Search";
+            // 
+            // txtboxSearch
+            // 
+            this.txtboxSearch.Location = new System.Drawing.Point(535, 33);
+            this.txtboxSearch.Name = "txtboxSearch";
+            this.txtboxSearch.Size = new System.Drawing.Size(217, 22);
+            this.txtboxSearch.TabIndex = 28;
+            this.txtboxSearch.TextChanged += new System.EventHandler(this.textboxSearch_TextChanged);
+            // 
             // Customers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1070, 465);
+            this.Controls.Add(this.txtboxSearch);
+            this.Controls.Add(this.Search);
             this.Controls.Add(this.timer);
-            this.Controls.Add(this.CANCEL);
+            this.Controls.Add(this.btncan);
             this.Controls.Add(this.Address);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.Gender);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.DELETE);
-            this.Controls.Add(this.ADD);
-            this.Controls.Add(this.EDIT);
+            this.Controls.Add(this.btndel);
+            this.Controls.Add(this.btnAdd);
+            this.Controls.Add(this.btnedit);
             this.Controls.Add(this.MaterialName);
             this.Controls.Add(this.Age);
             this.Controls.Add(this.Phone);
@@ -353,17 +375,19 @@ namespace Librarysystem
         private System.Windows.Forms.TextBox Phone;
         private System.Windows.Forms.TextBox Age;
         private System.Windows.Forms.TextBox MaterialName;
-        private System.Windows.Forms.Button EDIT;
-        private System.Windows.Forms.Button ADD;
-        private System.Windows.Forms.Button DELETE;
+        private System.Windows.Forms.Button btnedit;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button btndel;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.ComboBox Gender;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox Address;
-        private System.Windows.Forms.Button CANCEL;
+        private System.Windows.Forms.Button btncan;
         private System.Windows.Forms.Label timer;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label Search;
+        private System.Windows.Forms.TextBox txtboxSearch;
     }
 }
 

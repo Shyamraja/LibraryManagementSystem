@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data;
 using System.Data.OleDb;
+using System.Configuration;
 
 namespace Librarysystem
 {
@@ -187,9 +188,7 @@ namespace Librarysystem
              this.MaterialName.Clear();
    
         }
-
-      
-       
+   
         private void CANCEL_Click(object sender, EventArgs e)
         {
             DialogResult ans = MessageBox.Show("Do you Want to Cancel This Operation?", "Confirmation", MessageBoxButtons.YesNo);
@@ -210,8 +209,17 @@ namespace Librarysystem
             DateTime time = DateTime.Now;
             this.timer.Text = time.ToString();
         }
-
      
+        private void textboxSearch_TextChanged(object sender, EventArgs e)
+        {
+            string myconnectionstring = ConfigurationManager.ConnectionStrings["Librarysystem.Properties.Settings.DatabaselibrarymConnectionString"].ConnectionString;
+            string keyword = txtboxSearch.Text;
+            OleDbConnection con = new OleDbConnection(myconnectionstring);
+            OleDbDataAdapter da = new OleDbDataAdapter("Select * from CustomerTable where CustomerName like '%"+txtboxSearch.Text+"%'", con);   
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+           dataGridView1.DataSource = dt;
+        }
     }
   
 }

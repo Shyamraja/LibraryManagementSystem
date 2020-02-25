@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.OleDb;
-
+using System.Configuration;
 
 namespace Librarysystem
 {
@@ -203,6 +203,17 @@ namespace Librarysystem
                 this.timer.Text = time.ToString();
             }
 
+        }
+
+        private void textSearch_TextChanged(object sender, EventArgs e)
+        {
+            string myconnectionstring = ConfigurationManager.ConnectionStrings["Librarysystem.Properties.Settings.DatabaselibrarymConnectionString"].ConnectionString;
+            string keyword = textSearch.Text;
+            OleDbConnection con = new OleDbConnection(myconnectionstring);
+            OleDbDataAdapter da = new OleDbDataAdapter("Select * from MaterialTable where Name like '%" + textSearch.Text + "%'", con);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            dataGridView1.DataSource = dt;
         }
     }
 }

@@ -37,8 +37,8 @@
             this.MaterialID = new System.Windows.Forms.TextBox();
             this.Name = new System.Windows.Forms.TextBox();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnedit = new System.Windows.Forms.Button();
+            this.btnDel = new System.Windows.Forms.Button();
             this.Status = new System.Windows.Forms.ComboBox();
             this.Type = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -47,10 +47,12 @@
             this.Author = new System.Windows.Forms.TextBox();
             this.ISBN = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btncan = new System.Windows.Forms.Button();
             this.PublicationDate = new System.Windows.Forms.DateTimePicker();
             this.timer = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.label9 = new System.Windows.Forms.Label();
+            this.textSearch = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -134,30 +136,30 @@
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button3
+            // btnedit
             // 
-            this.button3.BackColor = System.Drawing.Color.LightGreen;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(355, 415);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(99, 30);
-            this.button3.TabIndex = 11;
-            this.button3.Text = "EDIT";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btnedit.BackColor = System.Drawing.Color.LightGreen;
+            this.btnedit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnedit.Location = new System.Drawing.Point(355, 415);
+            this.btnedit.Name = "btnedit";
+            this.btnedit.Size = new System.Drawing.Size(99, 30);
+            this.btnedit.TabIndex = 11;
+            this.btnedit.Text = "EDIT";
+            this.btnedit.UseVisualStyleBackColor = false;
+            this.btnedit.Click += new System.EventHandler(this.button3_Click);
             // 
-            // btnDelete
+            // btnDel
             // 
-            this.btnDelete.BackColor = System.Drawing.Color.Red;
-            this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.ForeColor = System.Drawing.Color.Black;
-            this.btnDelete.Location = new System.Drawing.Point(547, 415);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(103, 30);
-            this.btnDelete.TabIndex = 12;
-            this.btnDelete.Text = "DELETE";
-            this.btnDelete.UseVisualStyleBackColor = false;
-            this.btnDelete.Click += new System.EventHandler(this.button4_Click);
+            this.btnDel.BackColor = System.Drawing.Color.Red;
+            this.btnDel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDel.ForeColor = System.Drawing.Color.Black;
+            this.btnDel.Location = new System.Drawing.Point(547, 415);
+            this.btnDel.Name = "btnDel";
+            this.btnDel.Size = new System.Drawing.Size(103, 30);
+            this.btnDel.TabIndex = 12;
+            this.btnDel.Text = "DELETE";
+            this.btnDel.UseVisualStyleBackColor = false;
+            this.btnDel.Click += new System.EventHandler(this.button4_Click);
             // 
             // Status
             // 
@@ -237,18 +239,18 @@
             this.label8.TabIndex = 30;
             this.label8.Text = "PublicationDate";
             // 
-            // button1
+            // btncan
             // 
-            this.button1.BackColor = System.Drawing.Color.Orange;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(717, 415);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(110, 30);
-            this.button1.TabIndex = 32;
-            this.button1.Text = "CANCEL";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btncan.BackColor = System.Drawing.Color.Orange;
+            this.btncan.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btncan.ForeColor = System.Drawing.Color.Black;
+            this.btncan.Location = new System.Drawing.Point(717, 415);
+            this.btncan.Name = "btncan";
+            this.btncan.Size = new System.Drawing.Size(110, 30);
+            this.btncan.TabIndex = 32;
+            this.btncan.Text = "CANCEL";
+            this.btncan.UseVisualStyleBackColor = false;
+            this.btncan.Click += new System.EventHandler(this.button1_Click);
             // 
             // PublicationDate
             // 
@@ -272,15 +274,34 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(824, 13);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(53, 17);
+            this.label9.TabIndex = 35;
+            this.label9.Text = "Search";
+            // 
+            // textSearch
+            // 
+            this.textSearch.Location = new System.Drawing.Point(901, 8);
+            this.textSearch.Name = "textSearch";
+            this.textSearch.Size = new System.Drawing.Size(140, 22);
+            this.textSearch.TabIndex = 36;
+            this.textSearch.TextChanged += new System.EventHandler(this.textSearch_TextChanged);
+            // 
             // Materials
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1079, 453);
+            this.Controls.Add(this.textSearch);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.timer);
             this.Controls.Add(this.PublicationDate);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btncan);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.ISBN);
             this.Controls.Add(this.Author);
@@ -289,8 +310,8 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.Type);
             this.Controls.Add(this.Status);
-            this.Controls.Add(this.btnDelete);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.btnDel);
+            this.Controls.Add(this.btnedit);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.Name);
             this.Controls.Add(this.MaterialID);
@@ -299,7 +320,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
-            this.ForeColor = System.Drawing.Color.Black;          
+            this.ForeColor = System.Drawing.Color.Black;        
             this.Padding = new System.Windows.Forms.Padding(5);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
@@ -317,8 +338,8 @@
         private System.Windows.Forms.TextBox MaterialID;
         private System.Windows.Forms.TextBox Name;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnedit;
+        private System.Windows.Forms.Button btnDel;
         private System.Windows.Forms.ComboBox Status;
         private System.Windows.Forms.ComboBox Type;
         private System.Windows.Forms.Label label5;
@@ -327,9 +348,11 @@
         private System.Windows.Forms.TextBox Author;
         private System.Windows.Forms.TextBox ISBN;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btncan;
         private System.Windows.Forms.DateTimePicker PublicationDate;
         private System.Windows.Forms.Label timer;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox textSearch;
     }
 }
