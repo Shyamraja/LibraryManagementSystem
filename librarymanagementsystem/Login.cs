@@ -7,10 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-//using System.Windows.Forms;
-//using System.Data;
 using System.Data.OleDb;
-using System.Configuration;
 
 
 namespace Librarysystem
@@ -18,15 +15,12 @@ namespace Librarysystem
     public partial class Login : Form
     {
         OleDbConnection con = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Owner\Source\repos\Librarysystem\Databaselibrarym.mdb");
-
-        string sql;
+    
         public Login()
         {
             InitializeComponent();
         }
-
-      
-
+   
         private void button1_Click(object sender, EventArgs e)
         {
             string username, password;
@@ -37,52 +31,34 @@ namespace Librarysystem
             cmd.CommandType = CommandType.Text;
             cmd.CommandText = "select * from Admin where username = '"+textBox1.Text+"' and password = '" + textBox2.Text+"'";
             OleDbDataReader reader = cmd.ExecuteReader();
-            //while (reader.Read())
+          
                 int count = 0;
             while  (reader.Read())
             {
                 count = count + 1;
 
             }
-            //Checking single entry for application only one at a time
+            //Checking If the Admins username and password is unique or not  in the database 
             if (count == 1)
             {
                 MessageBox.Show("You are successfully Logged in");
+                Librarymdiparent mdiparent = new Librarymdiparent();
+                mdiparent.Show();
+                this.Hide();
             }
-            //
+            //If username and password is more than 1 then 
             if (count > 1)
             {
-                MessageBox.Show("Can't be duplicate Admin");
+                MessageBox.Show("Can't be duplicate Admin");              
+            }                 
+            else
+            {
+                MessageBox.Show("Username and password is incorrect");
             }
-
-            con.Close();
-
-            MessageBox.Show("You are logged in Successfully");
-                 Librarymdiparent mdiparent = new Librarymdiparent();
-                 mdiparent.Show();
-                 this.Hide();
-
-            
-
-            //   string username, password;
-            //   username = textBox1.Text;
-            //   password = textBox2.Text;
-            //   if(username=="Admin"&& password=="Admin1290")
-            //   {
-            //       MessageBox.Show("You are logged in Successfully");
-            //       Librarymdiparent mdiparent = new Librarymdiparent();
-            //       mdiparent.Show();
-            //       this.Hide();
-            //   }
-            //else
-            //   {
-            //       MessageBox.Show("Username or Password is incorrect");
-            //   }
-            //connection.Close();
+            con.Close();                 
         }
         private void button2_Click(object sender, EventArgs e)
-        {
-            //Application.Exit();
+        {           
             DialogResult conform = MessageBox.Show("Do you Want to Exit This Application?", "Confirmation", MessageBoxButtons.YesNo);
             if (conform == DialogResult.Yes)
             {
@@ -96,11 +72,6 @@ namespace Librarysystem
                 formLogin.Show(this);
                 this.Hide();
             }
-
-
-
-        }
-
-       
+        }      
     }
 }
