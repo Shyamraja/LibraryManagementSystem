@@ -9,14 +9,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.OleDb;
 
-
 namespace Librarysystem
 {
     public partial class Borrows : Form
     {
         OleDbConnection con = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Owner\Source\repos\Librarysystem\Databaselibrarym.mdb");
-        //OleDbCommand cmd;
-        //OleDbDataReader dr;
         string sql;
         
 
@@ -66,8 +63,6 @@ namespace Librarysystem
                 
                 this.MaterialID.Clear();
                 this.CustomerID.Clear();
-               
-
             }
 
             catch (Exception ex)
@@ -131,7 +126,6 @@ namespace Librarysystem
             con.Close();
             load();
         }
-
         private void button3_Click(object sender, EventArgs e)
         {
             string MaterialID, CustomerID;
@@ -139,7 +133,6 @@ namespace Librarysystem
             MaterialID = this.MaterialID.Text;
             CustomerID = this.CustomerID.Text;
            
-
             if (dataGridView1.SelectedRows.Count == 0)
                 return;
             int BorrowID = (int)dataGridView1.SelectedRows[0].Cells["BorrowID"].Value;
@@ -147,7 +140,6 @@ namespace Librarysystem
             sql = "Update BorrowTable set  MaterialID = @MaterialID,CustomerID = @CustomerID,BookedDate = @BookedDate,ReturnedDate = @ReturnedDate where BorrowID = @BorrowID ";
             con.Open();
             OleDbCommand cmd = new OleDbCommand(sql, con);
-
 
             cmd.Parameters.AddWithValue("@MaterialID", MaterialID);
             cmd.Parameters.AddWithValue("@CustomerID", CustomerID);

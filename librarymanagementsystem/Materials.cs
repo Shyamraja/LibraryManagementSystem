@@ -51,14 +51,11 @@ namespace Librarysystem
                 Status = this.Status.Text;
                 Author = this.Author.Text;
                 ISBN = this.ISBN.Text;
-               
-
 
                 sql = "insert into MaterialTable (Name,Type,Status,Author,ISBN,PublicationDate)values(@Name,@Type,@Status,@Author,@ISBN,@PublicationDate)";
                 con.Open();
                 OleDbCommand cmd = new OleDbCommand(sql, con);
                 
-               
                 cmd.Parameters.AddWithValue("@Name", Name);
                 cmd.Parameters.AddWithValue("@Type", Type);
                 cmd.Parameters.AddWithValue("@Status", Status);
@@ -108,14 +105,14 @@ namespace Librarysystem
         }
         private void FillFields()
         {
-
-            
+   
             Name.Text = dataGridView1.SelectedRows[0].Cells["Name"].Value.ToString();
             Type.Text = dataGridView1.SelectedRows[0].Cells["Type"].Value.ToString();
             Status.Text = dataGridView1.SelectedRows[0].Cells["Status"].Value.ToString();
             Author.Text = dataGridView1.SelectedRows[0].Cells["Author"].Value.ToString();
             ISBN.Text = dataGridView1.SelectedRows[0].Cells["ISBN"].Value.ToString();
             PublicationDate.Text = dataGridView1.SelectedRows[0].Cells["PublicationDate"].Value.ToString();
+       
         }
         private void button3_Click(object sender, EventArgs e)
         {
@@ -152,7 +149,6 @@ namespace Librarysystem
             this.Author.Clear();
             this.ISBN.Clear();
          
-
         }
         private void button4_Click(object sender, EventArgs e)
         {
@@ -175,14 +171,10 @@ namespace Librarysystem
             }
             con.Close();
             
-            load();
-           
+            load();       
         }
-       
-
         private void button1_Click(object sender, EventArgs e)
-        {
-          
+        { 
             DialogResult ans = MessageBox.Show("Do you Want to Cancel This Operation?", "Confirmation", MessageBoxButtons.YesNo);
             if (ans == DialogResult.Yes)
             {             
@@ -195,7 +187,6 @@ namespace Librarysystem
                 
             }
         }
-
         private void timer1_Tick(object sender, EventArgs e)
         {
             {
@@ -204,7 +195,6 @@ namespace Librarysystem
             }
 
         }
-
         private void textSearch_TextChanged(object sender, EventArgs e)
         {
             string myconnectionstring = ConfigurationManager.ConnectionStrings["Librarysystem.Properties.Settings.DatabaselibrarymConnectionString"].ConnectionString;
