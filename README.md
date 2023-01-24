@@ -2,7 +2,8 @@
 
 This project is Simple Library Management System in C#.Here admins/librarians can view information about customers, borrows and materials.Admins can login to the system using own username and password. Admins/librarians info(Username/password) can be changed, deleted and updated as needed from the database of the system. Librarians can create,edit,save and delete materials, customers and borrows information as needed.
 
-The Screenshot below shows the main User Interface and customers information of the project after logging in(User name and password is needed for the Admin to access inside  the system and add/edit/delete/save the customer information.Admins can choose the menu and view the required information.
+The Screenshot below shows the main User Interface and customers information of the project after logging in(User name and password is needed for the Admin to access inside  the system and add/edit/delete/save the customer information.Admins can login to the system choose the menu and view the required information and update as reqired.They can log out and exit from the system.
+
 ![Library](https://user-images.githubusercontent.com/32189508/214366008-33e94ed3-581c-4d26-bb5d-2428f494b6d0.png)
 
 
